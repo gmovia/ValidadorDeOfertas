@@ -1,19 +1,28 @@
 {
-  "name": "validadordeofertas",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/gmovia27uba/validadordeofertas.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/gmovia27uba/validadordeofertas/issues"
-  },
-  "homepage": "https://gitlab.com/gmovia27uba/validadordeofertas#readme"
-}
+    "name": "functional-programming-js",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "test": "jest"
+    },
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "",
+    "devDependencies": {
+      "@types/jest": "^27.5.1",
+      "jest": "^27.5.1",
+      "prettier": "^1.18.2",
+      "ts-jest": "^27.1.4",
+      "typescript": "^4.6.4"
+    },
+    "prettier": {
+      "trailingComma": "all",
+      "singleQuote": true,
+      "semi": true
+    }
+  }
+  
