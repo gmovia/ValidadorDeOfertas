@@ -1,7 +1,7 @@
 {
   "name": "validadordeofertas",
   "version": "1.0.0",
-  "description": "Trabajo practico de la materia Técnicas de Diseño. Universidad de Buenos Aires.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://gitlab.com/gmovia27uba/validadordeofertas/issues"
   },
-  "homepage": "https://gitlab.com/gmovia27uba/validadordeofertas#readme",
-  "devDependencies": {
-    "jest": "^28.1.0"
-  }
+  "homepage": "https://gitlab.com/gmovia27uba/validadordeofertas#readme"
 }
