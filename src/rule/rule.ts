@@ -1,26 +1,25 @@
-import { TypeStrategy } from "../TypeStrategy/typeStrategy";
+import { RuleAtomic } from "./ruleAtomic";
+import { LogicalCondition } from "../logicalCondition/logicalCondition"
+import { PurchasedProduct } from "../objectRule/purchasedProduct";
 import { ObjectRule } from "../objectRule/objectRule";
 
 export class Rule{
 
+    private logicalCondition: LogicalCondition;
     private code: string;
-    private strategy: TypeStrategy;
-    private field: string;
-    private value: Object;
-    
-    constructor(code: string, strategy: TypeStrategy, field:string, value:Object){
+    private rulesAtomic: Array<RuleAtomic>;
+
+    constructor(logicalCondition: LogicalCondition, code: string, rulesAtomic: Array<RuleAtomic>){
+        this.logicalCondition = logicalCondition;
         this.code = code;
-        this.strategy = strategy;
-        this.field = field;
-        this.value = value;
+        this.rulesAtomic = rulesAtomic;
     }
 
-    getCode(){
-        return this.code;
+    isApply(cart: PurchasedProduct){
+        for(let rule of this.rulesAtomic){
+            const objectRule = cart.translate(rule.getObjectRuleCode());
+            this.logicalCondition.add(rule.isApply(objectRule));
+        }
+        return this.logicalCondition.calculate();
     }
-
-    isApply(object: ObjectRule){
-        return this.strategy.isApply(object.translate(this.field), this.value);
-    }
-
 }
