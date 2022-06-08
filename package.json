@@ -2,27 +2,36 @@
     "name": "functional-programming-js",
     "version": "1.0.0",
     "description": "",
+    "main": "index.ts",
     "scripts": {
-      "test": "jest"
+        "test": "jest",
+        "start": "nodemon index.ts"
     },
     "repository": {
-      "type": "git",
-      "url": ""
+        "type": "git",
+        "url": ""
     },
     "author": "",
     "license": "ISC",
     "homepage": "",
     "devDependencies": {
-      "@types/jest": "^27.5.1",
-      "jest": "^27.5.1",
-      "prettier": "^1.18.2",
-      "ts-jest": "^27.1.4",
-      "typescript": "^4.6.4"
+        "@types/jest": "^27.5.1",
+        "jest": "^27.5.1",
+        "nodemon": "^2.0.16",
+        "prettier": "^1.18.2",
+        "ts-jest": "^27.1.4",
+        "typescript": "^4.6.4"
     },
     "prettier": {
-      "trailingComma": "all",
-      "singleQuote": true,
-      "semi": true
+        "trailingComma": "all",
+        "singleQuote": true,
+        "semi": true
+    },
+    "dependencies": {
+        "body-parser": "^1.20.0",
+        "connect-multiparty": "^2.2.0",
+        "express": "^4.18.1",
+        "mongoose": "^6.3.6",
+        "validator": "^13.7.0"
     }
-  }
-  
+}
