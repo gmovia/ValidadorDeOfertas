@@ -2,7 +2,7 @@ import { LogicalCondition } from "./logicalCondition";
 
 export class NOT extends LogicalCondition{
 
-    calculate(): boolean {
-        return !this.arrayConditions[0];
+    calculate(arrayConditions: Array<Boolean>): boolean {
+        return !arrayConditions[0];
     }
 }

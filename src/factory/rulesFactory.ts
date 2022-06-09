@@ -7,7 +7,7 @@ import { Lower } from "../TypeStrategy/lower";
 
 export class RulesFactory{
 
-    createRule(rule: any): AtomicRule{  
+    createRuleAtomic(rule: any): AtomicRule{  
         if(rule.type == "EQUALS"){
             return new AtomicRule(rule.code, new Equals(), rule.field, rule.value);
         }

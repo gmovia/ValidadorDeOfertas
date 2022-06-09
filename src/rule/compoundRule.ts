@@ -18,9 +18,10 @@ export class CompoundRule extends Rule{
     }
 
     isApply(purchasedProduct: PurchasedProduct){
+        var arrayBoolean = new Array<Boolean>();
         for(let rule of this.rulesAtomic){
-            this.logicalCondition.add(rule.isApply(purchasedProduct));
+            arrayBoolean.push(rule.isApply(purchasedProduct));
         }
-        return this.logicalCondition.calculate();
+        return this.logicalCondition.calculate(arrayBoolean);
     }
 }
