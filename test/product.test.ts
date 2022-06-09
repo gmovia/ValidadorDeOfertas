@@ -1,6 +1,5 @@
 import {Product} from '../src/objectRule/product'
 
-
 it("Dado que creo un producto con codigo AB001, entonces cuando consulto el codigo del producto es AB001", ()=>{
     let name = "Leche Descremada 1L serenisima";
     let brandCode = "DEFG123";

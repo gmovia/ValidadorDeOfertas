@@ -1,7 +1,9 @@
 import { TypeStrategy } from "../TypeStrategy/typeStrategy";
 import { ObjectRule } from "../objectRule/objectRule";
+import { PurchasedProduct } from "../objectRule/purchasedProduct";
+import { Rule } from "./rule";
 
-export class RuleAtomic{
+export class AtomicRule extends Rule{
 
     private code: string;
     private strategy: TypeStrategy;
@@ -9,6 +11,7 @@ export class RuleAtomic{
     private value: Object;
     
     constructor(code: string, strategy: TypeStrategy, field:string, value:Object){
+        super();
         this.code = code;
         this.strategy = strategy;
         this.field = field;
@@ -23,7 +26,8 @@ export class RuleAtomic{
         return this.code;
     }
     
-    isApply(object: ObjectRule){
-        return this.strategy.isApply(object.translate(this.field), this.value);
+    isApply(purchaseProduct: PurchasedProduct){
+        const valueToCompare = purchaseProduct.translate(this.getObjectRuleCode()).translate(this.field);
+        return this.strategy.isApply(valueToCompare, this.value);
     }
 }
