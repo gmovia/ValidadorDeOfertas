@@ -25,6 +25,10 @@ export class AtomicRule extends Rule{
     getCode(){
         return this.code;
     }
+
+    isEquals(anotherCode: string){
+        return this.code == anotherCode;
+    }
     
     isApply(purchaseProduct: PurchasedProduct){
         const valueToCompare = purchaseProduct.translate(this.getObjectRuleCode()).translate(this.field);
