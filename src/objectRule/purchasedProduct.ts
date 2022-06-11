@@ -11,4 +11,8 @@ export class PurchasedProduct extends ObjectRule{
         this.dictionary.set("PAYMENT", payment);
         this.dictionary.set("CALENDAR", calendar);
     }
+
+    calculatePrice(): number{
+        return this.dictionary.get("PRODUCT").calculatePrice();
+    }
 }

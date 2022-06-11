@@ -18,7 +18,7 @@ export class Product extends ObjectRule{
         return this.dictionary.get("PRODUCT.code");
     }
 
-    calculatePrice(){
+    calculatePrice(): number{
         return this.dictionary.get("PRODUCT.price")*(1 + this.dictionary.get("PRODUCT.iva_porcentage")/100);
     }
 }
