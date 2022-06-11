@@ -1,3 +1,12 @@
 export abstract class ObjectRule{
-    abstract translate(data: string): string;
+
+    protected dictionary: Map<string, any>;
+
+    constructor(){
+        this.dictionary = new Map<string, any>();
+    }
+
+    translate(data: string){
+        return this.dictionary.get(data)
+    }
 }
