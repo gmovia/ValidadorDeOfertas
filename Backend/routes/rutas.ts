@@ -1,7 +1,7 @@
 'use strict'
 
 var express = require('express');
-var ProductsController = require('../controllers/products');
+var UserController = require('../controllers/user');
 
 var router = express.Router();
 
@@ -11,6 +11,8 @@ var multipart = require('connect-multiparty');
 var md_upload = multipart({uploadDir: './upload/products'})
 
 //Rutas de prueba
-router.get('/', ProductsController.datoCurso);
+
+
+router.post('/save', UserController.save)
 
 module.exports = router;

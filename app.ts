@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 //Cargar ficheros rutas
-var products_routes = require('./Backend/routes/products');
+var products_routes = require('./Backend/routes/rutas');
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended:false}));
