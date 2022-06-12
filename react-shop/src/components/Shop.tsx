@@ -151,7 +151,7 @@ export default function productItem() {
             <Box display="flex"  alignItems="left" sx={{ flexWrap: 'wrap',alignContent: 'flex-start' }}>
                 {productList.map((product) => {
                     return (
-                        <Card sx={{ margin: 1, maxWidth: 150 }}>
+                        <Card sx={{ margin: 1, maxWidth: 130 }}>
                         <CardContent>
                         <Typography gutterBottom variant="body1" component="div">
                         {product.name}
@@ -175,7 +175,7 @@ export default function productItem() {
             <Box display="flex"  alignItems="left" sx={{ flexWrap: 'wrap',alignContent: 'flex-start' }}>
                 {cartList.map((product) => {
                     return (
-                        <Card sx={{ margin: 1, maxWidth: 150 }}>
+                        <Card sx={{ margin: 1, maxWidth: 130 }}>
                         <CardContent>
                         <Typography gutterBottom variant="body1" component="div">
                         {product.name}
