@@ -10,9 +10,8 @@ var multipart = require('connect-multiparty');
 //Donde se va a guardar lo que se suba
 var md_upload = multipart({uploadDir: './upload/products'})
 
-//Rutas de prueba
-
-
-router.post('/save', UserController.save)
+//Rutas principales
+router.post('/singIn', UserController.signIn)
+router.post('/login', UserController.login)
 
 module.exports = router;
