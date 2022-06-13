@@ -1,7 +1,9 @@
 'use strict'
 
 var express = require('express');
-var UserController = require('../controllers/user');
+
+var authController = require('../controllers/authController');
+
 
 var router = express.Router();
 
@@ -10,8 +12,9 @@ var multipart = require('connect-multiparty');
 //Donde se va a guardar lo que se suba
 var md_upload = multipart({uploadDir: './upload/products'})
 
-//Rutas principales
-router.post('/singIn', UserController.signIn)
-router.post('/login', UserController.login)
+//Rutas para los metodos del controller
+router.post('/register', authController.register)
+router.post('/login', authController.login)
+
 
 module.exports = router;

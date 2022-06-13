@@ -1,14 +1,13 @@
-var productos = require('../../products.json')
-var usuarios = require('../../usuarios.json')
 
 const fs = require('fs')
 const path = require ('path')
 console.log('dirname', __dirname)
+const bcryptjs = require ('bcryptjs')
 
-const rutaArchivoJson = path.join(__dirname, '../../usuarios.json')
+const rutaArchivoJson = path.join(__dirname, '../../database/usuarios.json')
 
 
-export class SingIn {
+export class Register {
 
     save(email: string, password: string, firstName: string, lastName:string): void{
        this.escribirJSON(email, password, firstName, lastName)
@@ -24,7 +23,9 @@ export class SingIn {
 
     escribirJSON = async(email: string, password: string, firstName: string, lastName:string) =>{
         const data = await this.leerJSON()
+        var lengthData = data.length
         let newData = {
+            "id": lengthData + 1,
             "email": email,
             "password": password,
             "firstName": firstName,
@@ -36,6 +37,24 @@ export class SingIn {
         
     }
     
+
+    emailAcceptable = async(email: string) =>{
+        const data = await this.leerJSON()
+        var validate = true
+        
+
+        for(let i=0; i <data.length; i++){
+            if (data[i].email == email){
+                validate = false
+                
+                
+                return validate
+
+            }
+
+        }
+        return validate
+    }
   
 
 }
