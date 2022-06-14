@@ -1,10 +1,10 @@
-import { Calendar } from "../src/objectRule/calendar";
-import { Product } from "../src/objectRule/product";
-import { Payment } from "../src/objectRule/payment";
-import { Store } from "../src/store/store";
-import { PurchasedProduct } from "../src/objectRule/purchasedProduct";
+import { Calendar } from "../../src/objectRule/calendar";
+import { Product } from "../../src/objectRule/product";
+import { Payment } from "../../src/objectRule/payment";
+import { Store } from "../../src/store/store";
+import { PurchasedProduct } from "../../src/objectRule/purchasedProduct";
 
-const rulesJSON = require("../data/dataJSON/reglas.json");
+const rulesJSON = require("../../data/dataJSON/reglas.json");
 
 const product = new Product("Leche Descremada 1L serenisima", "DEFG123", "La Serenisima", "X04ABXX", "Lacteo", 19.20, 21, "AB001");
 const payment = new Payment("DEBIT", "GALICIA");

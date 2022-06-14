@@ -1,4 +1,4 @@
-import { RulesFactory } from "../src/factory/rulesFactory";
+import { RulesFactory } from "../../src/factory/rulesFactory";
 
 
 it("Creacion de regla atomica de tipo equals",()=>{

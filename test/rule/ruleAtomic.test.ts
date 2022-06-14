@@ -1,13 +1,13 @@
-import { Product } from "../src/objectRule/product";
-import { AtomicRule } from "../src/rule/atomicRule"
-import { Equals } from "../src/TypeStrategy/equals"
-import { Distinct } from "../src/TypeStrategy/distinct"
-import { Higher } from "../src/TypeStrategy/higher"
-import { Lower } from "../src/TypeStrategy/lower"
-import { In } from "../src/TypeStrategy/in"
-import { Calendar } from "../src/objectRule/calendar";
-import { Payment } from "../src/objectRule/payment";
-import { PurchasedProduct } from "../src/objectRule/purchasedProduct";
+import { Product } from "../../src/objectRule/product";
+import { AtomicRule } from "../../src/rule/atomicRule"
+import { Equals } from "../../src/TypeStrategy/equals"
+import { Distinct } from "../../src/TypeStrategy/distinct"
+import { Higher } from "../../src/TypeStrategy/higher"
+import { Lower } from "../../src/TypeStrategy/lower"
+import { In } from "../../src/TypeStrategy/in"
+import { Calendar } from "../../src/objectRule/calendar";
+import { Payment } from "../../src/objectRule/payment";
+import { PurchasedProduct } from "../../src/objectRule/purchasedProduct";
 
 let code = "AB001";
 let name = "Leche Descremada 1L serenisima";

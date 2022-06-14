@@ -1,5 +1,5 @@
-import { ProductFactory } from "../src/factory/productFactory";
-import { products } from "../data/data"
+import { ProductFactory } from "../../src/factory/productFactory";
+import { products } from "../../data/data"
 
 it("Creacion de producto",()=>{
     const factory = new ProductFactory();

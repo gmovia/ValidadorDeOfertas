@@ -1,5 +1,5 @@
-import { Percentage } from "../src/discount/percentage";
-import { Fix } from "../src/discount/fix"
+import { Percentage } from "../../src/discount/percentage";
+import { Fix } from "../../src/discount/fix"
 
 it("Descuento del 20% se aplica sobre un valor de 10 y se obtiene 8", ()=>{
     const discount = new Percentage(20);

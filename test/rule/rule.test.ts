@@ -1,13 +1,13 @@
-import { AtomicRule } from "../src/rule/atomicRule"
-import { CompoundRule } from "../src/rule/compoundRule"
-import { AND } from "../src/logicalCondition/AND"
-import { OR } from "../src/logicalCondition/OR"
-import { NOT } from "../src/logicalCondition/NOT"
-import { Equals } from "../src/TypeStrategy/equals"
-import { Product } from "../src/objectRule/product"
-import { Calendar } from "../src/objectRule/calendar"
-import { Payment } from "../src/objectRule/payment"
-import { PurchasedProduct } from "../src/objectRule/purchasedProduct"
+import { AtomicRule } from "../../src/rule/atomicRule"
+import { CompoundRule } from "../../src/rule/compoundRule"
+import { AND } from "../../src/logicalCondition/AND"
+import { OR } from "../../src/logicalCondition/OR"
+import { NOT } from "../../src/logicalCondition/NOT"
+import { Equals } from "../../src/TypeStrategy/equals"
+import { Product } from "../../src/objectRule/product"
+import { Calendar } from "../../src/objectRule/calendar"
+import { Payment } from "../../src/objectRule/payment"
+import { PurchasedProduct } from "../../src/objectRule/purchasedProduct"
 
 
 it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y PAGO_TARJETA_DEBITO, un producto comprado con tarjeta de debito con la entidad banco macro satisface la regla", ()=>{

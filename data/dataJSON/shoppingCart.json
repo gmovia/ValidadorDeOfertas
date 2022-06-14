@@ -10,7 +10,7 @@
 			"name": "Lacteo"
 		},
 		"price": 25.40,
-		"iva_porcentage": 10.5,
+		"iva_percentage": 10.5,
 		"code": "AAR453J"
 	}],
 	"payment": {

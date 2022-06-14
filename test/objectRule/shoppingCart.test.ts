@@ -1,13 +1,13 @@
-import { Product } from '../src/objectRule/product';
-import {ShoppingCart} from '../src/shoppingCart/shoppingCart'
-import {AtomicRule} from '../src/rule/atomicRule'
-import {Equals} from '../src/TypeStrategy/equals'
-import {Higher} from '../src/TypeStrategy/higher'
-import {Offer} from '../src/offer/offer'
-import {Percentage} from '../src/discount/percentage'
-import { Payment } from '../src/objectRule/payment';
-import { Calendar } from '../src/objectRule/calendar';
-import { Fix } from '../src/discount/fix';
+import { Product } from '../../src/objectRule/product';
+import {ShoppingCart} from '../../src/shoppingCart/shoppingCart'
+import {AtomicRule} from '../../src/rule/atomicRule'
+import {Equals} from '../../src/TypeStrategy/equals'
+import {Higher} from '../../src/TypeStrategy/higher'
+import {Offer} from '../../src/offer/offer'
+import {Percentage} from '../../src/discount/percentage'
+import { Payment } from '../../src/objectRule/payment';
+import { Calendar } from '../../src/objectRule/calendar';
+import { Fix } from '../../src/discount/fix';
 
 const payment = new Payment("CREDIT", "GALICIA");
 const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);

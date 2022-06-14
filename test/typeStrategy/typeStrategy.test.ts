@@ -1,8 +1,8 @@
-import { Equals } from "../src/TypeStrategy/equals"
-import { Distinct } from "../src/TypeStrategy/distinct"
-import { Higher } from "../src/TypeStrategy/higher"
-import { Lower } from "../src/TypeStrategy/lower"
-import { In } from "../src/TypeStrategy/in"
+import { Equals } from "../../src/TypeStrategy/equals"
+import { Distinct } from "../../src/TypeStrategy/distinct"
+import { Higher } from "../../src/TypeStrategy/higher"
+import { Lower } from "../../src/TypeStrategy/lower"
+import { In } from "../../src/TypeStrategy/in"
 
 
 it("La estrategia de tipo equals devuelve true cuando se aplica sobre los valores 1 y 1", ()=> {

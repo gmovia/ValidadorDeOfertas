@@ -3,6 +3,7 @@ import { CalendarFactory } from "./calendarFactory";
 import { PaymentFactory } from "./paymentFactory";
 import { ShoppingCart } from "../shoppingCart/shoppingCart";
 import { ProductFactory } from "./productFactory";
+import { TypeCart } from '../type/typeCart'
 
 export class ShoppingCartFactory{
     
@@ -16,7 +17,7 @@ export class ShoppingCartFactory{
         this.paymentFactory = new PaymentFactory();   
     }
 
-    createShoppingCart(shoppingCart: any): ShoppingCart{
+    createShoppingCart(shoppingCart: TypeCart): ShoppingCart{
         const calendar = this.calendarFactory.createCalendar(shoppingCart.purchase_date);
         const payment = this.paymentFactory.createPayment(shoppingCart.payment);
         const cart = new ShoppingCart(payment, calendar);

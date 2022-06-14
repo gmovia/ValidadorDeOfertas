@@ -1,6 +1,6 @@
-import { AND } from "../src/logicalCondition/AND"
-import { OR } from "../src/logicalCondition/OR"
-import { NOT } from "../src/logicalCondition/NOT"
+import { AND } from "../../src/logicalCondition/AND"
+import { OR } from "../../src/logicalCondition/OR"
+import { NOT } from "../../src/logicalCondition/NOT"
 
 it("Dado un arreglo de booleanos con 3 true y 1 false, cuando ejecuto la compuerta AND, obtengo false",()=>{
     const and = new AND();
