@@ -13,8 +13,7 @@ export class ShoppingCartFactory{
     constructor(){
         this.productFactory = new ProductFactory();
         this.calendarFactory = new CalendarFactory();
-        this.paymentFactory = new PaymentFactory();
-        
+        this.paymentFactory = new PaymentFactory();   
     }
 
     createShoppingCart(shoppingCart: any): ShoppingCart{

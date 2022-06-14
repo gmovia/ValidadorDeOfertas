@@ -18,7 +18,7 @@ export class AtomicRule extends Rule{
         this.value = value;
     }
 
-    getObjectRuleCode(){
+    private getObjectRuleCode(){
         return this.field.split(".")[0];
     }
 

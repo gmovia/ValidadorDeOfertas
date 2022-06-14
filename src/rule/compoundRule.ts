@@ -17,6 +17,10 @@ export class CompoundRule extends Rule{
         this.rulesAtomic = rulesAtomic;
     }
 
+    getCode(){
+        return this.code;
+    }
+
     isApply(purchasedProduct: PurchasedProduct){
         var arrayBoolean = new Array<Boolean>();
         for(let rule of this.rulesAtomic){

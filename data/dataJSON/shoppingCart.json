@@ -1,0 +1,27 @@
+{
+	"products": [{
+		"name": "Leche Descremada 1L, la Calmisima",
+		"brand": {
+			"code": "Z001ABC",
+			"name": "La Calmisima"
+		},
+		"category": {
+			"code": "X033AXX",
+			"name": "Lacteo"
+		},
+		"price": 25.40,
+		"iva_porcentage": 10.5,
+		"code": "AAR453J"
+	}],
+	"payment": {
+		"method": "CREDIT",
+		"entity": "GALICIA"
+	},
+	"purchase_date": {
+		"year": "2022",
+		"month": "JUNE",
+		"day_number": 20,
+		"week_day": "Thursday",
+		"week_number": 4
+	}
+}

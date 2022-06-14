@@ -28,26 +28,13 @@ export class RulesFactory{
         return new NOT();
     }
 
-    createRuleAtomic(ruleAtomic: any): AtomicRule{  
-        const type = this.getTypeAtomic(ruleAtomic.type);
-        return new AtomicRule(ruleAtomic.code, type, ruleAtomic.field, ruleAtomic.value);
+    createRuleAtomic(code: string, type: string, field: string, value: any): AtomicRule{  
+        const typeObject = this.getTypeAtomic(type);
+        return new AtomicRule(code, typeObject, field, value);
     }
 
-    // Optimizar esto ! Tratar de agrupar ambos casos en una unica funcion
-
-    // No contempla el caso de una regla compuesta de reglas compuestas (o mix de compuestas con atomicas)
-    createRuleComposedOfAtomicRules(ruleCompound: any, rulesAtomic: Array<AtomicRule>): CompoundRule{
-        const type = this.getTypeCompound(ruleCompound.type);
-        const arrayRules = new Array<AtomicRule>();
-        for(let ruleCode of ruleCompound.rules){
-            for(let rule of rulesAtomic){
-                if(rule.isEquals(ruleCode)){
-                    arrayRules.push(rule);
-                }
-            }
-        }
-        return new CompoundRule(type, ruleCompound.code, arrayRules);
+    createRuleCompound(code: string, type: string, rules: Array<Rule>): CompoundRule{
+        const typeObject = this.getTypeCompound(type);
+        return new CompoundRule(typeObject, code, rules);
     }
-
-    //createRuleComposed =>  contempla el caso de tener reglas compuestas dentro! TO-DO
 }
