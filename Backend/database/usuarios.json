@@ -31,5 +31,10 @@
         "password": "$2a$08$W1FcEiSImicTc9oVQKDHG.idIau55Hgoz3rOO7rER5/u1ApJge6ee",
         "firstName": "christian",
         "lastName": "bravo"
+    },
+    {
+        "id": 6,
+        "email": "cuatro@hotmail.com",
+        "password": "$2a$08$/m5fzaK17VXISgXaQZms0e7agSo52RIIMHQsm/DEIRG1A312OQzHi"
     }
 ]

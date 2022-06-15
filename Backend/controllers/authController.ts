@@ -21,17 +21,17 @@ import {Login} from '../public/credentials/login'
 
 //procedimiento para registrarnos
 
-exports.register = async (req: any, res: any)=>{
+
+
+exports.register = async (req, res)=>{
 
         const credentials = new Register;
     
         const email = req.body.email
         const password= req.body.password
-        const firstName = req.body.firstName
-        const lastName = req.body.lastName
         let passwordHash = await bcryptjs.hash(password, 8)
 
-        if(!email || !password || !firstName || !lastName ){
+        if(!email || !password){
             return res.status(404).send({
                 succes: 'false',
                 message: 'Incomplete Fields'
@@ -40,7 +40,7 @@ exports.register = async (req: any, res: any)=>{
         }else {
             var validate =credentials.emailAcceptable(email)
             if(await validate == false){
-                return res.status(404).send({
+                return res.status(400).send({
                     succes: 'false',
                     message: 'Invalid Email'
                 });
@@ -48,7 +48,7 @@ exports.register = async (req: any, res: any)=>{
             
            
         }else {
-            credentials.save(email, passwordHash, firstName, lastName)
+            credentials.save(email, passwordHash)
             return res.status(200).send({
                 succes: 'true',
                 message: 'User Registered in succesfully'
@@ -61,11 +61,12 @@ exports.register = async (req: any, res: any)=>{
 
     } 
 
-    exports.login = async (req: any, res:any) => {
+    exports.login = async (req, res) => {
         try {
             const email = req.body.email
             const password = req.body.password
-        
+
+            
 
             if(!email || !password){
                 return res.status(404).send({
@@ -84,20 +85,22 @@ exports.register = async (req: any, res: any)=>{
                     const token = jwt.sign({id:id},process.env.JWT_SECRETO,{
                         expiresIn: process.env.JWT_TIEMPO_EXPIRA
                     })
-                    
-                    
-                    /*const cookiesOptions = {
-                        expires:new Date(Date.now()+ (90)*24*60*60*1000),
-                        httpOnly: true
-                    }*/
-                        return res.status(200).send({
+
+                  
+                /*guardo el token en una nuevo json*/
+                
+                credentials.saveToken(id, token)
+                
+                
+                
+                    return res.status(200).send({
                         succes: 'true',
                         message: 'User Logged in succesfully',
-                        data :{
+                        data: {
                             usuario: email,
-                            token: token 
+                            token: token
                         }
-                    });
+                    })
                  } else {
                     return res.status(404).send({
                         succes: 'false',
@@ -111,3 +114,14 @@ exports.register = async (req: any, res: any)=>{
 
         }
     }
+
+    exports.showProducts = async (req, res) => {
+        
+        try {
+            const dato = [
+                {codigo: 1, producto: "leche"}
+            ];
+            res.json(dato)
+
+
+        } catch (error){} }
