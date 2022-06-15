@@ -1,7 +1,7 @@
 export type RuleReference = string;
 
 export type SimpleRule = {
-	code?: RuleReference;
+	code: RuleReference;
 	description: string;
 	field: string;
 } & (
@@ -20,7 +20,7 @@ export type SimpleRule = {
 );
 
 export type CompositeRule = {
-	code?: RuleReference;
+	code: RuleReference;
 } & (
 	| {
 			type: "AND" | "OR";

@@ -1,5 +1,4 @@
-{
-	"rules": [
+[
 		{
 			"code": "MES_FEBRERO",
 			"description": "EL MES ES FEBRERO",
@@ -85,5 +84,4 @@
 			"code": "NO_MACRO",
 			"rules": "PAGO_MACRO"
 		}
-	]
-}
+]

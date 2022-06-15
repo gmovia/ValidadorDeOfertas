@@ -8,7 +8,11 @@ export class Payment extends ObjectRule{
         this.dictionary.set("PAYMENT.entity", entity);
     }
 
-    getMethod(){
+    getMethod(): string {
         return this.dictionary.get("PAYMENT.method");
+    }
+
+    getEntity(): string {
+        return this.dictionary.get("PAYMENT.entity");
     }
 }

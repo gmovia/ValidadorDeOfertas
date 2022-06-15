@@ -1,6 +1,6 @@
-import { ObjectRule } from '../objectRule/objectRule'
+import { PurchasedProduct } from '../objectRule/purchasedProduct';
 
 export abstract class Rule{
-    abstract isApply(objectRule: ObjectRule): boolean;
+    abstract isApply(purchasedProduct: PurchasedProduct): boolean;
     abstract getCode(): string;
 }

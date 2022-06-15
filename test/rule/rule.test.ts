@@ -19,8 +19,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y PAGO_TARJETA_DEBITO, un producto comprado con tarjeta de credito con la entidad banco macro no satisface la regla", ()=>{
@@ -32,8 +32,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(false);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla compuesta de tipo OR sobre las reglas atomicas PRODUCTO_LACTEO y PAGO_TARJETA_DEBITO, un producto comprado con tarjeta de debito satisface la regla", ()=>{
@@ -45,8 +45,8 @@ it("Dada una regla compuesta de tipo OR sobre las reglas atomicas PRODUCTO_LACTE
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla compuesta de tipo OR sobre las reglas atomicas PRODUCTO_LACTEO y PAGO_TARJETA_DEBITO, un producto lacteo comprado satisface la regla", ()=>{
@@ -58,8 +58,8 @@ it("Dada una regla compuesta de tipo OR sobre las reglas atomicas PRODUCTO_LACTE
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("CREDIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla compuesta de tipo NOT sobre la regla atomica PAGO_TARJETA_DEBITO, un producto comprado con tarjeta de credito satisface la regla", ()=>{
@@ -70,8 +70,8 @@ it("Dada una regla compuesta de tipo NOT sobre la regla atomica PAGO_TARJETA_DEB
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("CREDIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 
@@ -83,8 +83,8 @@ it("Dada una regla compuesta de tipo NOT sobre la regla atomica PAGO_TARJETA_DEB
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(false);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y LACTEO_TARJETA_DEBITO, un producto lacteo comprado con tarjeta de debito con la entidad banco macro satisface la regla", ()=>{
@@ -100,8 +100,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y LACTEO_TARJETA_DEBITO, un producto lacteo comprado con tarjeta de credito con la entidad banco macro no satisface la regla", ()=>{
@@ -117,8 +117,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("CREDIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(false);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y LACTEO_TARJETA_DEBITO, un producto lacteo comprado con tarjeta de debito con la entidad banco galicia no satisface la regla", ()=>{
@@ -134,8 +134,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "GALICIA");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(false);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 
@@ -152,8 +152,8 @@ it("Dada una regla compuesta de tipo AND sobre las reglas atomicas PAGO_MACRO y 
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("DEBIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(false);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 
@@ -170,6 +170,6 @@ it("Dada una regla compuesta de tipo OR sobre las reglas atomicas PAGO_MACRO y L
     const calendar = new Calendar("2022", "JUNE", 20, "Thursday", 4);
     const payment = new Payment("CREDIT", "MACRO");
 
-    const cart = new PurchasedProduct(product, payment, calendar);
-    expect(rule.isApply(cart)).toBe(true);
+    const purchasedProduct = new PurchasedProduct(product, payment, calendar);
+    expect(rule.isApply(purchasedProduct)).toBe(true);
 })

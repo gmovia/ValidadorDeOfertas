@@ -1,6 +1,8 @@
 import { RulesFactory } from '../factory/rulesFactory';
 import { AtomicRule } from '../rule/atomicRule';
+import { CompoundRule } from '../rule/compoundRule';
 import {Rule} from '../rule/rule'
+import { CompositeRule, RuleLiteral, SimpleRule } from '../type/typeRule';
 
 export class Store{
 
@@ -8,24 +10,26 @@ export class Store{
     private dictionaryCompoundRule: Map<string, any>;
     private factory: RulesFactory;
 
-    constructor(rulesJSON: any){
+    constructor(rules: RuleLiteral[]){
         this.dictionaryAtomicRule = new Map<string, AtomicRule>();
-        this.dictionaryCompoundRule = new Map<string, Map<string, any>>();
+        this.dictionaryCompoundRule = new Map<string, any>();
         this.factory = new RulesFactory();
-        this.init(rulesJSON);
+        this.init(rules);
     }
 
-    private init(rules: any): void{
+    private init(rules: RuleLiteral[]): void{
         for(let rule of rules){
             this.store(rule);
         }
     }
     
-    private store(rule: any): void{
+    private store(rule: RuleLiteral): void{
         if(this.isAtomic(rule.type)){
+            rule = rule as SimpleRule
             const ruleAtomic = this.factory.createRuleAtomic(rule.code, rule.type, rule.field, rule.value);
             this.dictionaryAtomicRule.set(rule.code, ruleAtomic);
         }
+        rule = rule as CompositeRule
         this.dictionaryCompoundRule.set(rule.code, rule);
     }
 
