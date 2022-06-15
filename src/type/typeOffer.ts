@@ -1,9 +1,9 @@
-import {AnyRule} from './typeRule'
+import {AnyRule, RuleLiteral} from './typeRule'
 import {TypeDiscount} from './typeDiscount'
 
 export interface TypeOffer {
 	description: string;
 	code: string;
-	rule: AnyRule;
+	rule: RuleLiteral;
 	discount: TypeDiscount;
 }

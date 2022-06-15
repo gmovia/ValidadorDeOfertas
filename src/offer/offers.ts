@@ -9,7 +9,7 @@ export class Offers{
         this.offers = new Array<Offer>();
     }
 
-    add(offer: Offer){
+    add(offer: Offer): void{
         this.offers.push(offer);
     }
 

@@ -22,15 +22,15 @@ export class AtomicRule extends Rule{
         return this.field.split(".")[0];
     }
 
-    getCode(){
+    getCode(): string{
         return this.code;
     }
 
-    isEquals(anotherCode: string){
+    isEquals(anotherCode: string): boolean{
         return this.code == anotherCode;
     }
     
-    isApply(purchaseProduct: PurchasedProduct){
+    isApply(purchaseProduct: PurchasedProduct): boolean{
         const valueToCompare = purchaseProduct.translate(this.getObjectRuleCode()).translate(this.field);
         return this.strategy.isApply(valueToCompare, this.value);
     }

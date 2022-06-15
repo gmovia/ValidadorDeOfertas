@@ -1,0 +1,13 @@
+[{
+    "description": "10% de descuento en lácteos durante febrero",
+    "code": "OF0001",
+    "rule": {
+        "type": "AND",
+        "code": "LACTEO_FEBRERO",
+        "rules": ["PRODUCTO_LACTEO", "MES_FEBRERO"]
+    },
+    "discount": {
+        "type": "PRODUCT_PERCENTAGE",
+        "value": 10
+    }
+}]

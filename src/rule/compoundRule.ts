@@ -17,11 +17,11 @@ export class CompoundRule extends Rule{
         this.rulesAtomic = rulesAtomic;
     }
 
-    getCode(){
+    getCode(): string{
         return this.code;
     }
 
-    isApply(purchasedProduct: PurchasedProduct){
+    isApply(purchasedProduct: PurchasedProduct): boolean{
         var arrayBoolean = new Array<Boolean>();
         for(let rule of this.rulesAtomic){
             arrayBoolean.push(rule.isApply(purchasedProduct));

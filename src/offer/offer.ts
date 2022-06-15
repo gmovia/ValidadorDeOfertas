@@ -16,8 +16,20 @@ export class Offer{
         this.discount = discount;
     }
 
-    calculateCost(product: PurchasedProduct, cost: number){
-        if(this.rule.isApply(product)){
+    getCode(): string{
+        return this.code;
+    }
+
+    getDescription(): string{
+        return this.description;
+    }
+
+    isApply(product: PurchasedProduct): boolean{
+        return this.rule.isApply(product);
+    }
+
+    calculateCost(product: PurchasedProduct, cost: number): number{
+        if(this.isApply(product)){
             return this.discount.apply(cost);
         }
         return cost;

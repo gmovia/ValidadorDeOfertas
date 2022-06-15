@@ -83,5 +83,10 @@
 			"type": "NOT",
 			"code": "NO_MACRO",
 			"rules": "PAGO_MACRO"
+		},
+		{
+			"type": "AND",
+			"code": "LACTEO_FEBRERO",
+			"rules": ["PRODUCTO_LACTEO", "MES_FEBRERO"]
 		}
 ]
