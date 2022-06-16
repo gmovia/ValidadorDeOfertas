@@ -1,4 +1,5 @@
-[{
+[
+    {
     "description": "10% de descuento en lácteos durante febrero",
     "code": "OF0001",
     "rule": {
@@ -10,4 +11,5 @@
         "type": "PRODUCT_PERCENTAGE",
         "value": 10
     }
-}]
+    }
+]

@@ -38,4 +38,14 @@ export class ShoppingCart{
         }
         return cost;
     }
+
+    discountedProductList(): Array<PurchasedProduct>{
+        const array = new Array<PurchasedProduct>();
+        for(let product of this.products){
+            if(this.offers.isAnyOfferApply(product)){
+                array.push(product);
+            }
+        }
+        return array;
+    }
 }

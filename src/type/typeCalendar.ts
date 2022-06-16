@@ -1,6 +1,6 @@
 export interface TypeCalendar{
-	year: string;
-	month: string;
+	year: string | number;
+	month: string | number;
 	day_number: number;
 	week_day:
 		| "Monday"
