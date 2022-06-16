@@ -36,5 +36,10 @@
         "id": 6,
         "email": "cuatro@hotmail.com",
         "password": "$2a$08$/m5fzaK17VXISgXaQZms0e7agSo52RIIMHQsm/DEIRG1A312OQzHi"
+    },
+    {
+        "id": 7,
+        "email": "a",
+        "password": "$2a$08$d4W1BL47OB9N8NUmBhrVIuXFTP2ydC15bROaTVI.47LBtZJYt2ELa"
     }
 ]

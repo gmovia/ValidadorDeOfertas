@@ -31,13 +31,8 @@ var md_upload = multipart({uploadDir: './upload/products'})
 router.post('/register', authController.register)
 router.post('/login', authController.login)
 
-
-
 /*verifico si es un token valido*/ 
-router.get('/productos',verifyToken, authController.showProducts)
-
-
-
+router.get('/productos', authController.showProducts)
 
 
 module.exports = router;

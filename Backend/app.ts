@@ -31,6 +31,10 @@ dotenv.config({path: './env/.env'})
 //para poder trabajar con las cookies
 //app.use(cookieParser)
 
+// Cors Policy
+var cors = require('cors')
+app.use(cors())
+
 //Middlewares
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
