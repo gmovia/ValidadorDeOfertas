@@ -3,11 +3,11 @@ import { ShoppingCartFactory } from "./factory/shoppingCartFactory";
 import { PurchasedProduct } from "./objectRule/purchasedProduct";
 import { Offer } from "./offer/offer";
 import { Store } from "./store/store";
+import { ProccessedProduct } from "./objectRule/proccessedProduct";
 import { TypeCart } from "./type/typeCart";
 import { TypeOffer } from "./type/typeOffer";
 import { RuleLiteral } from "./type/typeRule";
 
-// TODO: Replace this with the actual type
 type State = Offer[];
 
 export function initializeOffers(offers: TypeOffer[], rules: RuleLiteral[]): State {
@@ -20,13 +20,13 @@ export function initializeOffers(offers: TypeOffer[], rules: RuleLiteral[]): Sta
 	// Inicializa las ofertas
 }
 
-export function processProducts(state: State, cart: TypeCart): Array<PurchasedProduct> {
+export function processProducts(state: State, cart: TypeCart): Array<ProccessedProduct> {
 	const factory = new ShoppingCartFactory();
 	const shoppingCart = factory.createShoppingCart(cart);
 	for(let offer of state){
 		shoppingCart.applyOffer(offer);
 	}
 	return shoppingCart.discountedProductList();
-	// Devuelve una lista de productos que aplican al menos una oferta
+	// Devolver una lista con los productos actualizados
 }
 

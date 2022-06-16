@@ -38,7 +38,7 @@ it("Dado que agrego una regla compuesta con codigo PAGO_TARJETA_MACRO, cuando co
 it("Dado que agrego una regla compuesta con codigo NO_MACRO, cuando consulto el codigo NO_MACRO, obtengo una regla compuesta",()=>{
     const store = new Store(rules);
     const rule = store.getRule("NO_MACRO");
-    expect(rule.getCode()).toBe("NO_MACRO"); // NO ENTRA AL IF DE LA REGLA ATOMICA
+    expect(rule.getCode()).toBe("NO_MACRO");
 
     var payment = new Payment("DEBIT", "MACRO");
     expect(rule.isApply(new PurchasedProduct(product, payment, calendar))).toBe(false);

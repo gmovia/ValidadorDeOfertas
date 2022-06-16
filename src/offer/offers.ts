@@ -13,18 +13,19 @@ export class Offers{
         this.offers.push(offer);
     }
 
-    isAnyOfferApply(product: PurchasedProduct): boolean {
+    getOffersAppliedToTheProduct(product: PurchasedProduct){
+        const offersApplied = new Array<Offer>();
         for(let offer of this.offers){
             if(offer.isApply(product)){
-                return true;
+                offersApplied.push(offer);
             }
         }
-        return false;
+        return offersApplied;
     }
 
     calculatePrice(product: PurchasedProduct): number{
         let cost = product.calculatePrice();
-        for(let offer of this.offers){
+        for(let offer of this.getOffersAppliedToTheProduct(product)){
             cost = offer.calculateCost(product, cost);
         }
         return cost;
