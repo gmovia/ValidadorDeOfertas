@@ -1,5 +1,4 @@
-import { Product } from "../objectRule/product";
-import { PurchasedProduct } from "../objectRule/purchasedProduct";
+import { PurchasedProduct } from "./purchasedProduct";
 import { Offer } from "../offer/offer";
 import { Offers } from "../offer/offers";
 
@@ -22,6 +21,14 @@ export class ProccessedProduct{
 
     getCode(): string{
         return this.product.getCode();
+    }
+
+    getOffersDescriptions(): Array<string> {
+        const offersDescriptions = Array<string>();
+        for(let offer of this.offers.getOffersAppliedToTheProduct(this.product)){
+            offersDescriptions.push(offer.getDescription());
+        }
+        return offersDescriptions;
     }
 
     calculatePrice(): number{

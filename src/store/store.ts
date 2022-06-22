@@ -12,7 +12,7 @@ export class Store{
 
     constructor(rules: RuleLiteral[]){
         this.dictionaryAtomicRule = new Map<string, AtomicRule>();
-        this.dictionaryCompoundRule = new Map<string, any>();
+        this.dictionaryCompoundRule = new Map<string, CompositeRule>();
         this.factory = new RulesFactory();
         this.init(rules);
     }
@@ -56,5 +56,9 @@ export class Store{
         const rule = this.dictionaryCompoundRule.get(code);
         const arrayRules = this.searchRules(rule.rules);
         return this.factory.createRuleCompound(rule.code, rule.type, arrayRules);
+    }
+
+    get(code: string): CompositeRule{
+        return this.dictionaryCompoundRule.get(code);
     }
 }

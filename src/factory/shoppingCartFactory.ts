@@ -1,4 +1,3 @@
-import { Calendar } from "../objectRule/calendar";
 import { CalendarFactory } from "./calendarFactory";
 import { PaymentFactory } from "./paymentFactory";
 import { ShoppingCart } from "../shoppingCart/shoppingCart";

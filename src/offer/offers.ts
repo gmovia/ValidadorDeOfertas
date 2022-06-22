@@ -1,4 +1,4 @@
-import {Offer} from '../offer/offer'
+import {Offer} from './offer'
 import { PurchasedProduct } from '../objectRule/purchasedProduct';
 
 export class Offers{

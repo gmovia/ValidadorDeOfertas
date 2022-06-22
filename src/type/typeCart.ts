@@ -1,6 +1,6 @@
-import {TypeProduct} from '../type/typeProduct'
-import {TypePayment} from '../type/typePayment'
-import {TypeCalendar} from '../type/typeCalendar'
+import {TypeProduct} from './typeProduct'
+import {TypePayment} from './typePayment'
+import {TypeCalendar} from './typeCalendar'
 
 export interface TypeCart {
 	products: TypeProduct[];

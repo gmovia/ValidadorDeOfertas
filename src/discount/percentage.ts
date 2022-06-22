@@ -1,4 +1,4 @@
-import { Discount } from "../discount/discount";
+import { Discount } from "./discount";
 
 export class Percentage extends Discount{
 

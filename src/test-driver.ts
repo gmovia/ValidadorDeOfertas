@@ -1,6 +1,5 @@
 import { OfferFactory } from "./factory/offerFactory";
 import { ShoppingCartFactory } from "./factory/shoppingCartFactory";
-import { PurchasedProduct } from "./objectRule/purchasedProduct";
 import { Offer } from "./offer/offer";
 import { Store } from "./store/store";
 import { ProccessedProduct } from "./objectRule/proccessedProduct";

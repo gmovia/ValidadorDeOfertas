@@ -7,6 +7,13 @@
 			"value": 2
 		},
 		{
+			"code": "PRODUCTO_GASEOSA",
+			"description": "PRODUCTO ES CATEGORIA GASEOSA",
+			"type": "EQUALS",
+			"field": "PRODUCT.category.code",
+			"value": "X001BXX"
+		},
+		{
 			"code": "MES_JUNIO",
 			"description": "EL MES ES JUNIO",
 			"type": "EQUALS",
@@ -80,6 +87,13 @@
 			"rules": ["PAGO_TARJETA_DEBITO_CREDITO", "PAGO_EFECTIVO"]
 		},
 		{
+			"code": "ES_COCA_COLA_1L",
+			"description": "GASEOSA COCA COLA 1L",
+			"type": "EQUALS",
+			"field": "PRODUCT.code",
+			"value": "ABR000J"
+		},
+		{
 			"type": "NOT",
 			"code": "NO_MACRO",
 			"rules": "PAGO_MACRO"
@@ -88,5 +102,15 @@
 			"type": "AND",
 			"code": "LACTEO_FEBRERO",
 			"rules": ["PRODUCTO_LACTEO", "MES_FEBRERO"]
-		}
+		},
+		{	
+			"type": "NOT",
+			"code": "NO_ES_COCA_COLA_1L",
+			"rules": "ES_COCA_COLA_1L"
+		},
+		{
+            "type": "AND",
+            "code": "GASEOSA_EXCEPTO_COCA",
+            "rules": ["NO_ES_COCA_COLA_1L", "PRODUCTO_GASEOSA", "MES_JUNIO"]
+        }
 ]
