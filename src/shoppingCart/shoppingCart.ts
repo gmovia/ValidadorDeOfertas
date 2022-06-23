@@ -5,7 +5,6 @@ import { PurchasedProduct } from '../objectRule/purchasedProduct';
 import {Offer} from '../offer/offer'
 import {Offers} from '../offer/offers'
 import { ProccessedProduct } from '../objectRule/proccessedProduct';
-import { notNull } from 'ts-mockito';
 
 export class ShoppingCart{
 

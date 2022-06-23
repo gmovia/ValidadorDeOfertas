@@ -1,4 +1,4 @@
-import { offers, products, rules } from "../data/data";
+import { offers, products, rules, cart } from "../data/data";
 import { initializeOffers, processProducts } from "../src/test-driver";
 import { TypeCart } from "../src/type/typeCart";
 
@@ -134,5 +134,4 @@ describe("acceptance tests 1", () => {
 		const result = processProducts(state, cart);
 		expect(result[0].getCode()).toEqual(leche[0].code);
 	});
-	
 });

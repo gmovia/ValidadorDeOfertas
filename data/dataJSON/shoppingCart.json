@@ -19,7 +19,7 @@
 	},
 	"purchase_date": {
 		"year": "2022",
-		"month": "JUNE",
+		"month": 2,
 		"day_number": 20,
 		"week_day": "Thursday",
 		"week_number": 4
