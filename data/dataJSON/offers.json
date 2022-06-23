@@ -30,5 +30,20 @@
             "type": "FIX",
             "value": 7
         }
+    },
+    {
+        "description": "25% de descuento en las compras de Julio pagando con credito o debito Macro",
+        "code": "OF0001",
+        "rule": {
+            "type": "AND",
+            "code": "PAGO_MACRO_EN_JULIO",
+            "rules": [
+            "PAGO_TARJETA_MACRO",
+            "MES_JULIO"]
+        },
+        "discount": {
+            "type": "CART_PERCENTAGE",
+            "value": 25
+        }
     }
 ]

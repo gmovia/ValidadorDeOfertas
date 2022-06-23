@@ -68,12 +68,9 @@ describe("acceptance tests 1", () => {
 			}
 		};
 		const result = processProducts(state, cart);
-		const price = fanta.price*(1+fanta.iva_percentage/100)
-		expect(result[0].calculatePrice()).toEqual(price);
+		expect(result).toEqual([]);
 	});
-
 	
-	/*
 	it("should get no discount in the bougth paying with Santander Credit in January", () => {
 		const cart: TypeCart = {
 			products,
@@ -93,7 +90,49 @@ describe("acceptance tests 1", () => {
 		expect(result).toEqual([]);
 	});
 
-	*/
+	it("should get 25% discount in the bougth paying with Macro Credit in July", () => {
+		const cart: TypeCart = {
+			products,
+			payment: {
+				method: "CREDIT",
+				entity: "MACRO"
+			},
+			purchase_date: {
+				year: 2022,
+				month: 7,
+				day_number: 21,
+				week_day: "Thursday",
+				week_number: 29
+			}
+		};
+		const result = processProducts(state, cart);
+		for(let i=0; i<products.length; i++){
+			expect(products[i].code).toBe(result[i].getCode());
+			expect(result[i].calculatePrice()).toBe(products[i].price*(1+products[i].iva_percentage/100)*0.75);
+		}
+	});
 
 
+	it("should get 15% discount in a Leche Chocolatada 1L in Febrary paying with Galicia", () => {
+		const leche = products.filter(
+			x => x.name === "Leche Chocolatada 1L, la Calmisima"
+		);
+		const cart: TypeCart = {
+			products: leche,
+			payment: {
+				method: "CREDIT",
+				entity: "Galicia"
+			},
+			purchase_date: {
+				year: 2022,
+				month: 2,
+				day_number: 2,
+				week_day: "Wednesday",
+				week_number: 5
+			}
+		};
+		const result = processProducts(state, cart);
+		expect(result[0].getCode()).toEqual(leche[0].code);
+	});
+	
 });

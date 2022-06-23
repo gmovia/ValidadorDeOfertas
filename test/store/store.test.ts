@@ -27,10 +27,10 @@ it("Dado que agrego una regla compuesta con codigo PAGO_TARJETA_MACRO, cuando co
     const rule = store.getRule("PAGO_TARJETA_MACRO");
     expect(rule.getCode()).toBe("PAGO_TARJETA_MACRO");
 
-    var payment = new Payment("DEBIT", "GALICIA");
+    var payment = new Payment("DEBIT", "MACRO");
     expect(rule.isApply(new PurchasedProduct(product, payment, calendar))).toBe(true);
 
-    var payment = new Payment("CREDIT", "GALICIA");
+    var payment = new Payment("CREDIT", "MACRO");
     expect(rule.isApply(new PurchasedProduct(product, payment, calendar))).toBe(true);
 });
 
