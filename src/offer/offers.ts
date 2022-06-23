@@ -30,4 +30,12 @@ export class Offers{
         }
         return cost;
     }
+
+    getDescriptions(): Array<string>{
+        const offersDescriptions = Array<string>();
+        for(let offer of this.offers){
+            offersDescriptions.push(offer.getDescription());
+        }
+        return offersDescriptions;
+    }
 }

@@ -24,11 +24,7 @@ export class ProccessedProduct{
     }
 
     getOffersDescriptions(): Array<string> {
-        const offersDescriptions = Array<string>();
-        for(let offer of this.offers.getOffersAppliedToTheProduct(this.product)){
-            offersDescriptions.push(offer.getDescription());
-        }
-        return offersDescriptions;
+       return this.offers.getDescriptions();
     }
 
     calculatePrice(): number{

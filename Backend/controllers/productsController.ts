@@ -18,7 +18,7 @@ exports.sendCart = (req: any, res: any) => {
     const products : TypeCart = req.body as TypeCart
 
     const state = initializeOffers(offers, rules)
-    const productsList = processProducts(state, products)
+    const productsList = processProducts(state, products[0])
     const list = productsList.map(proProduct => {
         return {
             code: proProduct.getCode(),
