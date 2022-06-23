@@ -1,8 +1,13 @@
+import { initializeOffers } from '../../src/test-driver';
+import { processProducts } from '../../src/test-driver';
+
 'use strict'
 //Importaciones
 var validator = require('validator');
+import { offers, rules } from '../../data/data';
 //Usamos las librerias para borrar y la libreria path de node
 import { Utils } from '../public/utils/utils'
+import { TypeCart } from '../../src/type/typeCart';
 const jwt = require('jsonwebtoken')
 var path = require('path');
 
@@ -10,13 +15,23 @@ var path = require('path');
 exports.sendCart = (req: any, res: any) => {
 
     /*recibo de roman el json*/
-    const products = req.body
+    const products : TypeCart = req.body as TypeCart
+
+    const state = initializeOffers(offers, rules)
+    const productsList = processProducts(state, products)
+    const list = productsList.map(proProduct => {
+        return {
+            code: proProduct.getCode(),
+            offers: proProduct.getOffersDescriptions(),
+            price: proProduct.calculatePrice()
+        }
+    })
 
     /*proceso funcion el json con la funcion de guido*/
 
     
     /*le devuelvo a roman el json con las ofertas*/
-    res.status(200).json(products)
+    res.status(200).json(list)
 
 },
 

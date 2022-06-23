@@ -17,6 +17,7 @@ export class ShoppingCartFactory{
     }
 
     createShoppingCart(shoppingCart: TypeCart): ShoppingCart{
+        shoppingCart =  shoppingCart[0]
         const calendar = this.calendarFactory.createCalendar(shoppingCart.purchase_date);
         const payment = this.paymentFactory.createPayment(shoppingCart.payment);
         const cart = new ShoppingCart(payment, calendar);
