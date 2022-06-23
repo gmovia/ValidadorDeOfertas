@@ -1,42 +1,17 @@
 [
     {
         "id": 1,
-        "email": "dos@hotmail.com",
-        "password": "1234",
-        "firstName": "christian",
-        "lastName": "bravo"
+        "email": "",
+        "password": ""
     },
     {
         "id": 2,
-        "email": "nuevo@hotmail.com",
-        "password": "$2a$08$uM6OCYDkw7bTiW5DhA.kQ.2oUZMTbI0CL8986OUStrPlLdIZW327W",
-        "firstName": "christian",
-        "lastName": "bravo"
+        "email": "liam",
+        "password": "$2a$08$euXIH5CLVXG2nlLhMovmGOje0NphULVeEWNsnUcYj30hmkyeBYEqG"
     },
     {
         "id": 3,
-        "email": "nuevo@hotmail.com",
-        "password": "$2a$08$AlVukvZfqNGBG47bqK2OvuidkmBWO9Izuuerj3e4Rrqn39HfpUm3m",
-        "firstName": "christian",
-        "lastName": "bravo"
-    },
-    {
-        "id": 4,
-        "email": "nuevo@hotmail.com",
-        "password": "$2a$08$lUd0T28BrGLNfD3DQ7OYre8uo0NVhxMPi7mJamaLA5GxRdBkXJkti"
-    },
-    {
-        "id": 5,
-        "email": "uevo@hotmail.com",
-        "password": "$2a$08$W1FcEiSImicTc9oVQKDHG.idIau55Hgoz3rOO7rER5/u1ApJge6ee",
-        "firstName": "christian",
-        "lastName": "bravo"
-    },
-    {
-        "id": 6,
-        "email": "loco@hotmail.com",
-        "password": "$2a$08$a8J4chCEl5O7xjnsE72n7OAMrWbehr4zr8ZD54g3gOiSy4DI1qNJ.",
-        "firstName": "christian",
-        "lastName": "bravo"
+        "email": "ben",
+        "password": "$2a$08$ncr1PuIWMH0NyBaYUtIjD.tvSxrgasA7LxMD0IUh.KTCh2BO7dMNy"
     }
 ]

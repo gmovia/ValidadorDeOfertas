@@ -1,33 +1,29 @@
 const fs = require('fs')
 const path = require ('path')
 const bcryptjs = require ('bcryptjs')
+import {Utils} from '../utils/utils'
 
 const rutaArchivoJson = path.join(__dirname, '../../database/usuarios.json')
 
 
 export class Register {
 
-    save(email: string, password: string, firstName: string, lastName:string): void{
-       this.escribirJSON(email, password, firstName, lastName)
-      
+    save(email: string, password: string, path:any): void{
+       this.escribirJSON(email, password, path)
+       //this.leerJSON()
     }
 
-     leerJSON = async() =>{
-        const data = await fs.readFileSync(rutaArchivoJson)
-        var plainObject = JSON.parse(data)
-        
-        return plainObject
-    }
+   
 
-    escribirJSON = async(email: string, password: string, firstName: string, lastName:string) =>{
-        const data = await this.leerJSON()
+    escribirJSON = async(email: string, password: string, path:any) =>{
+        var utils = new Utils;
+        const data = await utils.readJSON(path)
         var lengthData = data.length
         let newData = {
             "id": lengthData + 1,
             "email": email,
-            "password": password,
-            "firstName": firstName,
-            "lastName": lastName
+            "password": password
+
         }
         data.push(newData)
         console.log(data)
@@ -36,8 +32,9 @@ export class Register {
     }
     
 
-    emailAcceptable = async(email: string) =>{
-        const data = await this.leerJSON()
+    emailAcceptable = async(email: string, path:any) =>{
+        var utils = new Utils;
+        const data = await utils.readJSON(path)
         var validate = true
         
 
