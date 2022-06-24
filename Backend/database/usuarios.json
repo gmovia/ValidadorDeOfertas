@@ -13,5 +13,15 @@
         "id": 3,
         "email": "ben",
         "password": "$2a$08$ncr1PuIWMH0NyBaYUtIjD.tvSxrgasA7LxMD0IUh.KTCh2BO7dMNy"
+    },
+    {
+        "id": 4,
+        "email": "test",
+        "password": "$2a$08$I94OigwLj.3yTtBi8C67y.L84nKAfchQo9IX4zHitBVvBlAM637s2"
+    },
+    {
+        "id": 5,
+        "email": "a",
+        "password": "$2a$08$Noz9O5GjPJPd0XPeXkRov.WVUgsIchvP7MMAYxUvuM4dDIGe6.n7a"
     }
 ]

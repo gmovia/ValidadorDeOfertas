@@ -20,6 +20,7 @@ export function initializeOffers(offers: TypeOffer[], rules: RuleLiteral[]): Sta
 }
 
 export function processProducts(state: State, cart: TypeCart): Array<ProccessedProduct> {
+	
 	const factory = new ShoppingCartFactory();
 	const shoppingCart = factory.createShoppingCart(cart);
 	for(let offer of state){
