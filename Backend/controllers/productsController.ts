@@ -14,9 +14,10 @@ var path = require('path');
 
 exports.sendCart = (req: any, res: any) => {
 
-    /*recibo de roman el json*/
+    /*recibo de el json con los productos*/
     const products : TypeCart = req.body as TypeCart
 
+   /*proceso los productos con las ofertes*/
     const state = initializeOffers(offers, rules)
     const productsList = processProducts(state, products[0])
     const list = productsList.map(proProduct => {
@@ -26,11 +27,8 @@ exports.sendCart = (req: any, res: any) => {
             price: proProduct.calculatePrice()
         }
     })
-
-    /*proceso funcion el json con la funcion de guido*/
-
     
-    /*le devuelvo a roman el json con las ofertas*/
+    /*devuelvo las ofertas*/
     res.status(200).json(list)
 
 },
@@ -50,38 +48,9 @@ exports.sendCart = (req: any, res: any) => {
             const pathFile = path.join(__dirname, '../../Backend/database/token.json')
 
             var validateToken = utils.tokenValidate(userId, token, pathFile);
-            //console.log(await validateToken);
-
             if (err || await validateToken == false) return res.status(403).send("Token invalido");
-            console.log(user);
             req.user = user;
             next();
         });
     }
 
-
-/*exports.showProducts = async (req, res) => {
-        
-    try {
-        const dato = [
-            {codigo: 1, producto: "leche"}
-        ];
-        res.json(dato)
-
-
-    } catch (error){} }*/
-
-
-exports.showProducts = async (req, res) => {
-
-    try {
-        return res.status(200).send({
-            succes: 'true',
-            message: 'show products correctly',
-
-        })
-
-    } catch (error) {
-
-    }
-}

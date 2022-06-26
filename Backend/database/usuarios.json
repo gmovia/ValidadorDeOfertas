@@ -23,5 +23,20 @@
         "id": 5,
         "email": "a",
         "password": "$2a$08$Noz9O5GjPJPd0XPeXkRov.WVUgsIchvP7MMAYxUvuM4dDIGe6.n7a"
+    },
+    {
+        "id": 6,
+        "email": "william",
+        "password": "$2a$08$pZ3MrBizJuHOrAEE3mkyMu37XlUMVdCNQDniFvJmySfq9lA0dvyiW"
+    },
+    {
+        "id": 7,
+        "email": "john",
+        "password": "$2a$08$hQTxtfA8ZC9pCdkkWLUK4OZK6XS4mlTt.7Oy4poIdj88OiclyX.ey"
+    },
+    {
+        "id": 8,
+        "email": "thomas",
+        "password": "$2a$08$n8SFGv88IFKDPC..Wbdr6eOJ7Rl0TvLukAOTFBtMAcXUt1hpYKS9i"
     }
 ]

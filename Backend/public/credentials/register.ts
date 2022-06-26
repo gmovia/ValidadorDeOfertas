@@ -9,13 +9,13 @@ const rutaArchivoJson = path.join(__dirname, '../../database/usuarios.json')
 export class Register {
 
     save(email: string, password: string, path:any): void{
-       this.escribirJSON(email, password, path)
-       //this.leerJSON()
+       this.writeJSONUser(email, password, path)
+       
     }
 
    
 
-    escribirJSON = async(email: string, password: string, path:any) =>{
+    writeJSONUser = async(email: string, password: string, path:any) =>{
         var utils = new Utils;
         const data = await utils.readJSON(path)
         var lengthData = data.length
@@ -25,9 +25,9 @@ export class Register {
             "password": password
 
         }
-        data.push(newData)
-        console.log(data)
-     return fs.writeFileSync(rutaArchivoJson, JSON.stringify(data, null ,4))
+
+        utils.writeJson(data, newData, path)
+        
         
     }
     
@@ -41,8 +41,6 @@ export class Register {
         for(let i=0; i <data.length; i++){
             if (data[i].email == email){
                 validate = false
-                
-                
                 return validate
 
             }

@@ -106,7 +106,7 @@ exports.login = async (req, res) => {
                     }
                 })
             } else {
-                return res.status(404).send({
+                return res.status(400).send({
                     succes: 'false',
                     message: 'Invalid email or password'
                 });

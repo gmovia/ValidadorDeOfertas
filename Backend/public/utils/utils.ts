@@ -25,5 +25,12 @@ export class Utils {
         return validate
     }
 
+    writeJson = async(data: any, newData: any, path: any  ) => {
+        data.push(newData)
+        return fs.writeFileSync(path, JSON.stringify(data, null, 4))
+
+
+    }
+
 }
 
