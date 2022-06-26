@@ -1,6 +1,20 @@
 {
 	"rules": [
 		{
+			"code": "ES_COCA_COLA_1L",
+			"description": "GASEOSA COCA COLA 1L",
+			"type": "EQUALS",
+			"field": "PRODUCT.code",
+			"value": "ABR000J"
+		},
+		{
+			"code": "PRODUCTO_GASEOSA",
+			"description": "PRODUCTO ES CATEGORIA GASEOSA",
+			"type": "EQUALS",
+			"field": "PRODUCT.category.code",
+			"value": "X001BXX"
+		},
+		{
 			"code": "MES_FEBRERO",
 			"description": "EL MES ES FEBRERO",
 			"type": "EQUALS",
@@ -76,11 +90,6 @@
 			"rules": ["PAGO_MACRO", "PAGO_TARJETA_DEBITO_CREDITO"]
 		},
 		{
-			"type": "OR",
-			"code": "ELECTRO_LIQ_TARJETA_MACRO",
-			"rules": ["ELECTRO_LIQ", "PAGO_EFECTIVO"]
-		},
-		{
 			"type": "NOT",
 			"code": "NO_MACRO",
 			"rules": "PAGO_MACRO"
@@ -89,7 +98,7 @@
 	"offers": [
 		{
 			"description": "10% de descuento en lácteos durante febrero",
-			"code": "OF0001",
+			"code": "OF0003",
 			"rule": {
 				"type": "AND",
 				"code": "LACTEO_FEBRERO",
@@ -101,9 +110,43 @@
 			}
 		},
 		{
+			"description": "25% de descuento en las compras de Julio pagando con credito o debito Macro",
+			"code": "OF0001",
+			"rule": {
+				"type": "AND",
+				"code": "PAGO_MACRO_EN_JULIO",
+				"rules": [
+				"PAGO_TARJETA_MACRO",
+				"MES_JULIO"]
+			},
+			"discount": {
+				"type": "CART_PERCENTAGE",
+				"value": 25
+			}
+		},
+		{
+			"description": "7 pesos de descuento en gaseosas excepto la Coca Cola de 1L",
+			"code": "OF0002",
+			"rule": {
+				"type": "AND",
+				"code": "GASEOSA_EXCEPTO_COCA",
+				"rules": [{
+					"code": "NO_ES_COCA_COLA_1L",
+					"type": "NOT",
+					"rules": "ES_COCA_COLA_1L"
+				}, 
+				"PRODUCTO_GASEOSA",
+				"MES_JUNIO"]
+			},
+			"discount": {
+				"type": "FIX",
+				"value": 7
+			}
+		},
+		{
 			"description":
 				"Los Lunes y Miércoles de Febrero, los productos de marca: LA CALMISIMA (codigo 0088ABC) tienen un 15% de descuento solo pagando con CREDITO O DEBITO DEL BANCO GALICIA",
-			"code": "OF0002",
+			"code": "OF0004",
 			"rule": {
 				"type": "AND",
 				"rules": [
@@ -114,13 +157,13 @@
 								"type": "EQUALS",
 								"description": "DIA LUNES",
 								"field": "CALENDAR.week_day",
-								"value": "MONDAY"
+								"value": "Monday"
 							},
 							{
 								"type": "EQUALS",
 								"description": "DIA MIERCOLES",
 								"field": "CALENDAR.week_day",
-								"value": "WEDNESDAY"
+								"value": "Wednesday"
 							}
 						]
 					},
@@ -131,7 +174,7 @@
 								"type": "EQUALS",
 								"description": "AÑO 2022 ",
 								"field": "CALENDAR.year",
-								"value": "2022"
+								"value": 2022
 							},
 							{
 								"type": "EQUALS",
@@ -143,7 +186,7 @@
 								"type": "EQUALS",
 								"description": "ES MARCA LA CALMISIMA",
 								"field": "PRODUCT.brand.code",
-								"value": "0088ABC"
+								"value": "Z001ABC"
 							}
 						]
 					},
