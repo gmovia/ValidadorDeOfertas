@@ -143,15 +143,18 @@
 				"value": 7
 			}
 		},
+
 		{
 			"description":
 				"Los Lunes y Miércoles de Febrero, los productos de marca: LA CALMISIMA (codigo 0088ABC) tienen un 15% de descuento solo pagando con CREDITO O DEBITO DEL BANCO GALICIA",
 			"code": "OF0004",
 			"rule": {
 				"type": "AND",
+				"code": "OF0005",
 				"rules": [
 					{
 						"type": "OR",
+						"code": "OF0006",
 						"rules": [
 							{
 								"type": "EQUALS",
@@ -169,6 +172,7 @@
 					},
 					{
 						"type": "AND",
+						"code": "OF0009",
 						"rules": [
 							{
 								"type": "EQUALS",
@@ -192,6 +196,7 @@
 					},
 					{
 						"type": "AND",
+						"code": "OF0013",
 						"rules": [
 							{
 								"type": "EQUALS",

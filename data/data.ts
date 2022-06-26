@@ -19,25 +19,26 @@ for(let offer of offers){
 }
 
 untypedRulesAndOffers.offers.forEach(offer => {
-    // element can be a string or an object
-    offer.rule.rules.forEach((element, index) => {
-        //if element is not a string, replace it with its code and push it into rules
-        if(typeof element !== "string"){
-            const rule = element as RuleLiteral
-            rules.push(rule);
-            offer.rule.rules[index] = rule.code;
+    offer.rule.rules.forEach((rule, index1) => {
+        if(typeof rule !== "string"){
+            let i = 0
+            for(let r of rule.rules) {
+                if(typeof r !== "string"){
+                    const a = {
+                        ...r,
+                        code: r.description + i
+                    } as RuleLiteral
+                    
+                    rules.push(a);
+                    rule.rules[i] = a.code;
+                }
+                i +=1
+            }
+            const ruleToPush = rule as RuleLiteral
+            rules.push(ruleToPush);
+            offer.rule.rules[index1] = rule.code;
         }
     });
 });
 
-untypedRulesAndOffers.offers.forEach(offer => {
-    // element can be a string or an object
-    offer.rule.rules.forEach((element, index) => {
-        //if element is not a string, replace it with its code and push it into rules
-        if(typeof element !== "string"){
-            const rule = element as RuleLiteral
-            rules.push(rule);
-            offer.rule.rules[index] = rule.code;
-        }
-    });
-});
+
