@@ -38,5 +38,10 @@
         "id": 8,
         "email": "thomas",
         "password": "$2a$08$n8SFGv88IFKDPC..Wbdr6eOJ7Rl0TvLukAOTFBtMAcXUt1hpYKS9i"
+    },
+    {
+        "id": 9,
+        "email": "testDemo",
+        "password": "$2a$08$2OVzE0bt9e10lyeXOcGm2eqwwv7fujTWnT89imG4a0Bh7qYfu1Kku"
     }
 ]
