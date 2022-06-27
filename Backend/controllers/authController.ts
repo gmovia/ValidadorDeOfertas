@@ -16,8 +16,8 @@ var path = require('path');
 
 import { Register } from '../public/credentials/register'
 import { Login } from '../public/credentials/login'
-const pathFile = path.join(__dirname, '../../Backend/database/usuarios.json')
-const pathTokenFile = path.join(__dirname, '../../Backend/database/token.json')
+const pathFile = path.join(__dirname, '../database/usuarios.json')
+const pathTokenFile = path.join(__dirname, '../database/token.json')
 
 
 
