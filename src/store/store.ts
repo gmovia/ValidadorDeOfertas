@@ -57,8 +57,4 @@ export class Store{
         const arrayRules = this.searchRules(rule.rules);
         return this.factory.createRuleCompound(rule.code, rule.type, arrayRules);
     }
-
-    get(code: string): CompositeRule{
-        return this.dictionaryCompoundRule.get(code);
-    }
 }
