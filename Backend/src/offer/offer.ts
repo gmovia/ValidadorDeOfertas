@@ -1,6 +1,8 @@
 import { Rule } from "../rule/rule";
 import { Discount } from "../discount/discount"
 import { PurchasedProduct } from "../objectRule/purchasedProduct";
+import { TypeReferenceDirectiveResolutionCache } from "typescript";
+import { TypeDiscount } from "../type/typeDiscount";
 
 export class Offer{
 
@@ -33,5 +35,9 @@ export class Offer{
             return this.discount.apply(cost);
         }
         return cost;
+    }
+
+    getDiscount(): TypeDiscount{
+        return this.discount.getDiscount();
     }
 }

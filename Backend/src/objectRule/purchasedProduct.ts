@@ -1,3 +1,4 @@
+import { TypeProduct } from "../type/typeProduct";
 import { Calendar } from "./calendar";
 import { ObjectRule } from "./objectRule";
 import { Payment } from "./payment";
@@ -18,5 +19,9 @@ export class PurchasedProduct extends ObjectRule{
 
     calculatePrice(): number{
         return this.dictionary.get("PRODUCT").calculatePrice();
+    }
+
+    getProduct(): TypeProduct{
+        return this.dictionary.get("PRODUCT").getProduct();
     }
 }

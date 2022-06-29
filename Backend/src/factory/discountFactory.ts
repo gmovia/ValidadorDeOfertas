@@ -7,8 +7,8 @@ export class DiscountFactory{
 
     createDiscount(discount: TypeDiscount): Discount{
         if(discount.type == "FIX"){
-            return new Fix(discount.value);
+            return new Fix(discount.type, discount.value);
         }
-        return new Percentage(discount.value);
+        return new Percentage(discount.type, discount.value);
     }
 }

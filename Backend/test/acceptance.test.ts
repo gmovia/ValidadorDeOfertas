@@ -1,6 +1,7 @@
 import { offers, products, rules, cart } from "../data/data";
 import { initializeOffers, processProducts } from "../src/test-driver";
 import { TypeCart } from "../src/type/typeCart";
+import { TypeDiscount } from "../src/type/typeDiscount";
 
 describe("acceptance tests 1", () => {
 
@@ -21,10 +22,20 @@ describe("acceptance tests 1", () => {
 				week_number: 7
 			}
 		};
+
+		const expectedDiscount: TypeDiscount[] = [
+			{
+				type: "PRODUCT_PERCENTAGE",
+				value: 10
+			}
+		];
+
 		const result = processProducts(state, cart);
         expect(result[0].getCode()).toBe(products[0].code);
         expect(result[1].getCode()).toBe(products[1].code);
         expect(result[2].getCode()).toBe(products[2].code);
+
+		//expect(result[0].getResult()).toBe({discounts: expectedDiscount, product: products[0]});
     });
 
 	

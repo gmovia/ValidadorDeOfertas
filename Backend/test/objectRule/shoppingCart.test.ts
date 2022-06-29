@@ -35,7 +35,7 @@ it("Cuando agrego un producto lacteo con precio 20 y un iva del 20% al carrito d
     cart.add(new Product("Leche Descremada 1L serenisima", "DEFG123", "La Serenisima", "X033XXX", "Lacteo", 20, 20, "AB001"));
     
     const ruleLacteo = new AtomicRule("PRODUCTO_LACTEO", new Equals(), "PRODUCT.category.code", "X033XXX");
-    const discount = new Percentage(10);
+    const discount = new Percentage("PRODUCT_PERCENTAGE", 10);
    
     const offer = new Offer("10% descuento en producto lacteo", "0F001", ruleLacteo, discount); 
     cart.applyOffer(offer);
@@ -51,8 +51,8 @@ it("Prueba de integracion 1", ()=>{
     const ruleLacteo = new AtomicRule("PRODUCTO_LACTEO", new Equals(), "PRODUCT.category.code", "X033XXX");
     const rule10 = new AtomicRule("R1", new Higher(), "PRODUCT.price", 10);
 
-    const discountPercentage = new Percentage(10);
-    const discountFix = new Fix(5);
+    const discountPercentage = new Percentage("PRODUCT_PERCENTAGE", 10);
+    const discountFix = new Fix("FIX", 5);
    
     const offer1 = new Offer("10% descuento en producto lacteo", "0F001", ruleLacteo, discountPercentage); 
     cart.applyOffer(offer1);

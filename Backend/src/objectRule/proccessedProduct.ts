@@ -30,6 +30,10 @@ export class ProccessedProduct{
     calculatePrice(): number{
         return this.offers.calculatePrice(this.product);
     }
+
+    getResult(){
+        return {discounts: this.offers.getDiscounts(), product: this.product.getProduct()};
+    }
     
 }
 

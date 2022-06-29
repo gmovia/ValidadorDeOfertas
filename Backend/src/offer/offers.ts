@@ -1,5 +1,6 @@
 import {Offer} from './offer'
 import { PurchasedProduct } from '../objectRule/purchasedProduct';
+import { TypeDiscount } from '../type/typeDiscount';
 
 export class Offers{
 
@@ -37,5 +38,13 @@ export class Offers{
             offersDescriptions.push(offer.getDescription());
         }
         return offersDescriptions;
+    }
+
+    getDiscounts(): Array<TypeDiscount>{
+        const discounts = Array<TypeDiscount>();
+        for(let offer of this.offers){
+            discounts.push(offer.getDiscount());
+        }
+        return discounts;
     }
 }

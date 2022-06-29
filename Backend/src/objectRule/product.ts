@@ -1,3 +1,4 @@
+import { TypeProduct } from "../type/typeProduct";
 import { ObjectRule } from "./objectRule";
 
 export class Product extends ObjectRule{
@@ -39,7 +40,7 @@ export class Product extends ObjectRule{
     }
 
     getIvaPercentage(): number{
-        return this.dictionary.get("PRODUCT.iva_percentage");
+        return this.dictionary.get("PRODUCT.iva_porcentage");
     }
 
     getCode(): string{
@@ -48,6 +49,17 @@ export class Product extends ObjectRule{
 
     calculatePrice(): number{
         return this.dictionary.get("PRODUCT.price")*(1 + this.dictionary.get("PRODUCT.iva_porcentage")/100);
+    }
+
+    getProduct(): TypeProduct{
+        return {name: this.getName(),
+                brand: {code: this.getBrandCode(),
+                        name: this.getBrandName()},
+                category: {code: this.getCategoryCode(),
+                           name: this.getCategoryName()},
+                price: this.getPrice(),
+                iva_percentage: this.getIvaPercentage(),
+                code: this.getCode()};
     }
 }
 

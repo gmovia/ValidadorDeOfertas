@@ -1,3 +1,4 @@
+import { TypePayment } from "../type/typePayment";
 import { ObjectRule } from "./objectRule";
 
 export class Payment extends ObjectRule{
