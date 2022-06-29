@@ -1,24 +1,14 @@
+import untypedOffersExtra from "./dataJSON/extraOffers.json";
 import { TypeProduct } from '../src/type/typeProduct'
 import { TypeCart } from '../src/type/typeCart';
 import { TypeOffer } from '../src/type/typeOffer'
 import { AnyRule, CompositeRule, RuleLiteral } from '../src/type/typeRule';
 
-import untypedProducts from "./dataJSON/products.json";
-import untypedCart from "./dataJSON/shoppingCart.json";
-import untypedRulesAndOffers from "./dataJSON/offersAndRules.json";
+export const rulesExtra: RuleLiteral[] = untypedOffersExtra.rules as RuleLiteral[];
+export const offersExtra: TypeOffer[] = untypedOffersExtra.offers as TypeOffer[];
 
 
-
-
-
-export const products: TypeProduct[] = untypedProducts as TypeProduct[];
-export const cart: TypeCart = untypedCart as TypeCart;
-export const rules: RuleLiteral[] = untypedRulesAndOffers.rules as RuleLiteral[];
-export const offers: TypeOffer[] = untypedRulesAndOffers.offers as TypeOffer[];
-
-
-
-for (let rule of rules) {
+for (let rule of rulesExtra) {
     let newRule  = rule as CompositeRule
     let i = 0
     if (newRule.rules) {
@@ -30,19 +20,20 @@ for (let rule of rules) {
                     ...rule,
                     code: "codigoAleatorio" + i
                 }
-                rules.push(newR)
+                rulesExtra.push(newR)
                 newRule.rules[i] = "codigoAleatorio" + i
 
             }
             i += 1
         }
 }
+
 } 
-for(let offer of offers){
-    rules.push(offer.rule as RuleLiteral);
+for(let offer of offersExtra){
+    rulesExtra.push(offer.rule as RuleLiteral);
 }
 
-untypedRulesAndOffers.offers.forEach(offer => {
+untypedOffersExtra.offers.forEach(offer => {
     if (typeof offer.rule != "string") {
 
         offer.rule.rules.forEach((rule1, index1) => {
@@ -56,7 +47,7 @@ untypedRulesAndOffers.offers.forEach(offer => {
                                 code: r.description + i
                             } as RuleLiteral
                             
-                            rules.push(a);
+                            rulesExtra.push(a);
                             (rule1 as any).rules[i] = a.code;
                         }
                         i +=1
@@ -67,7 +58,7 @@ untypedRulesAndOffers.offers.forEach(offer => {
                         code: rule1.description + index1
                     } as RuleLiteral
                     
-                    rules.push(a);
+                    rulesExtra.push(a);
                     (offer.rule as unknown as CompositeRule).rules[index1] = a.code;
                     return
 
@@ -79,10 +70,8 @@ untypedRulesAndOffers.offers.forEach(offer => {
                 } 
                 
                 const ruleToPush = rule1 as RuleLiteral
-                rules.push(ruleToPush);
+                rulesExtra.push(ruleToPush);
             }
         });
     }
 });
-
-

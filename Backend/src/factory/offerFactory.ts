@@ -15,7 +15,13 @@ export class OfferFactory{
 
     createOffer(offer: TypeOffer): Offer{
         const discount = this.discountFactory.createDiscount(offer.discount);
-        const rule = this.store.getRule(offer.rule.code);
+        
+        let rule = null;
+        if (typeof offer.rule == "string") {
+            rule = this.store.getRule(offer.rule);
+        } else {
+            rule = this.store.getRule(offer.rule.code);
+        }
         return new Offer(offer.description, offer.code, rule, discount);
     }
 }

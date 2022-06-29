@@ -2,6 +2,7 @@ import { offers, products, rules, cart } from "../data/data";
 import { initializeOffers, processProducts } from "../src/test-driver";
 import { TypeCart } from "../src/type/typeCart";
 import { TypeDiscount } from "../src/type/typeDiscount";
+import {offersExtra, rulesExtra} from "../data/dataExtra";
 
 describe("acceptance tests 1", () => {
 
@@ -31,11 +32,10 @@ describe("acceptance tests 1", () => {
 		];
 
 		const result = processProducts(state, cart);
-        expect(result[0].getCode()).toBe(products[0].code);
-        expect(result[1].getCode()).toBe(products[1].code);
-        expect(result[2].getCode()).toBe(products[2].code);
 
-		//expect(result[0].getResult()).toBe({discounts: expectedDiscount, product: products[0]});
+		expect(result[0].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[0]});
+		expect(result[1].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[1]});
+		expect(result[2].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[2]});
     });
 
 	
@@ -59,6 +59,8 @@ describe("acceptance tests 1", () => {
 		expect(result[0].getCode()).toBe(fanta[0].code);
 		const price = fanta[0].price*(1+fanta[0].iva_percentage/100)
 		expect(result[0].calculatePrice()).toBe(price - 7);
+
+		
 	});
 
 	

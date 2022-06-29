@@ -55,7 +55,8 @@ export class Store{
         }
         if(this.dictionaryCompoundRule.has(code)){
             const rule = this.dictionaryCompoundRule.get(code);
-            const arrayRules = this.searchRules(rule.rules);
+            const    arrayRules = this.searchRules(rule.rules);
+                   
             return this.factory.createRuleCompound(rule.code, rule.type, arrayRules);
         }
         throw new Error("Codigo inexistente");
