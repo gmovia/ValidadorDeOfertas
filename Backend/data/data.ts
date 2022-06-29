@@ -6,8 +6,10 @@ import untypedOffersExtra from "./dataJSON/extraOffers.json";
 import untypedProducts from "./dataJSON/products.json";
 import untypedCart from "./dataJSON/shoppingCart.json";
 import untypedRulesAndOffers from "./dataJSON/offersAndRules.json";
-import filterJson from './preProccessFunction';
+import { PreProccessJson } from './preProccessFunction';
 
+
+const preProccessJson = new PreProccessJson()
 
 const UntypedOffersWithMissingLink = {
 	rules: [],
@@ -56,15 +58,15 @@ export const offersWithLoop: TypeOffer[] = UntypedOffersWithLoop.offers as TypeO
 
 
 
-filterJson(rulesWithMissingLinks, offersWithMissingLinks, UntypedOffersWithMissingLink);
-filterJson(rulesWithLoop, offersWithLoop, UntypedOffersWithLoop); 
+preProccessJson.filterJson(rulesWithMissingLinks, offersWithMissingLinks, UntypedOffersWithMissingLink);
+preProccessJson.filterJson(rulesWithLoop, offersWithLoop, UntypedOffersWithLoop); 
 
 
 export const rulesExtra: RuleLiteral[] = untypedOffersExtra.rules as RuleLiteral[];
 export const offersExtra: TypeOffer[] = untypedOffersExtra.offers as TypeOffer[];
 
 
-filterJson(rulesExtra, offersExtra, untypedOffersExtra);
+preProccessJson.filterJson(rulesExtra, offersExtra, untypedOffersExtra);
 
 
 export const products: TypeProduct[] = untypedProducts as TypeProduct[];
@@ -72,4 +74,5 @@ export const cart: TypeCart = untypedCart as TypeCart;
 export const rules: RuleLiteral[] = untypedRulesAndOffers.rules as RuleLiteral[];
 export const offers: TypeOffer[] = untypedRulesAndOffers.offers as TypeOffer[];
 
-filterJson(rules, offers, untypedRulesAndOffers);
+
+preProccessJson.filterJson(rules, offers, untypedRulesAndOffers);

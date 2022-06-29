@@ -1,3 +1,4 @@
+
 {
 	"rules": [
 		{
@@ -8,12 +9,12 @@
 			"value": "CASH"
 		},
 		{
-			"code": "MONEDA_EXTRANJERA",
+			"code": "MONEDA_ARGENTINA",
 			"type": "AND",
 			"rules": [
 				"PAGO_EFECTIVO",
 				{
-					"type": "DISTINCT",
+					"type": "EQUALS",
 					"field": "PAYMENT.entity",
 					"description": "Cualquier moneda",
 					"value": "ARS"
@@ -24,23 +25,23 @@
 	"offers": [
 		{
 			"code": "OF0001",
-			"description": "30% de descuento comprando con moneda extranjera",
+			"description": "30% de descuento comprando con moneda argentina",
 			"discount": {
 				"type": "CART_PERCENTAGE",
 				"value": 30
 			},
-			"rule": "MONEDA_EXTRANJERA"
+			"rule": "MONEDA_ARGENTINA"
 		},
 		{
 			"code": "OF0002",
-			"description": "Los lunes, 1% de descuento en productos que cuestan mas de $175",
+			"description": "Los miercoles, 1% de descuento en productos que cuestan mas de $175",
 			"discount": {
 				"type": "PRODUCT_PERCENTAGE",
 				"value": 1
 			},
 			"rule": {
 				"type": "AND",
-                "code": "0F0020",
+				"code":"00f203",
 				"rules": [
 					{
 						"description": "Cuesta mas de $175",
@@ -49,10 +50,10 @@
 						"value": 175
 					},
 					{
-						"description": "Es lunes",
+						"description": "Es miercoles",
 						"field": "CALENDAR.week_day",
 						"type": "EQUALS",
-						"value": "Monday"
+						"value": "Wednesday"
 					}
 				]
 			}
@@ -66,7 +67,7 @@
 			},
 			"rule": {
 				"type": "AND",
-                "code": "0F0021",
+				"code": "00f201",
 				"rules": [
 					{
 						"description": "Tasado 10.5% de IVA",
@@ -85,3 +86,5 @@
 		}
 	]
 }
+
+

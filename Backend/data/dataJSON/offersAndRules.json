@@ -240,66 +240,6 @@
 				"type": "PRODUCT_PERCENTAGE",
 				"value": 15
 			}
-		},
-		{
-			"code": "OF0017",
-			"description": "30% de descuento comprando con moneda extranjera",
-			"discount": {
-				"type": "CART_PERCENTAGE",
-				"value": 30
-			},
-			"rule": "MONEDA_EXTRANJERA"
-		},
-		{
-			"code": "OF0018",
-			"description": "Los lunes, 1% de descuento en productos que cuestan mas de $175",
-			"discount": {
-				"type": "PRODUCT_PERCENTAGE",
-				"value": 1
-			},
-			"rule": {
-				"type": "AND",
-				"code": "0F0020",
-				"rules": [
-					{
-						"description": "Cuesta mas de $175",
-						"type": "HIGHER",
-						"field": "PRODUCT.price",
-						"value": 175
-					},
-					{
-						"description": "Es lunes",
-						"field": "CALENDAR.week_day",
-						"type": "EQUALS",
-						"value": "Monday"
-					}
-				]
-			}
-		},
-		{
-			"code": "OF0021",
-			"description": "Los viernes, 10% de descuento en productos con 10.5% de IVA",
-			"discount": {
-				"type": "CART_PERCENTAGE",
-				"value": 10
-			},
-			"rule": {
-				"type": "AND",
-				"rules": [
-					{
-						"description": "Tasado 10.5% de IVA",
-						"type": "EQUALS",
-						"field": "PRODUCT.iva_percentage",
-						"value": 10.5
-					},
-					{
-						"description": "Es viernes",
-						"field": "CALENDAR.week_day",
-						"type": "EQUALS",
-						"value": "Friday"
-					}
-				]
-			}
 		}
 
 

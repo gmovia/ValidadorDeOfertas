@@ -39,10 +39,7 @@ describe("extension tests", () => {
 
 	it("should accept empty offers", () => {
         const state = initializeOffers([], []);
-/*		const state = initializeOffers({
-			offers: [],
-			rules: []
-		});*/
+
 		const result = processProducts(state, someCart);
 		expect(result).toEqual([]);
 	});
@@ -92,7 +89,7 @@ describe("extension tests", () => {
 			products,
 			payment: {
 				method: "CASH",
-				entity: "USD"
+				entity: "ARS"
 			},
 			purchase_date: {
 				year: 1996,

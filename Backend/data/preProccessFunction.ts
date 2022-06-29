@@ -1,6 +1,28 @@
 import { AnyRule, CompositeRule, RuleLiteral } from "../src/type/typeRule"
 
-export default function filterJson(rulesToFilter, offersToFilter, untypeOffers) {
+
+
+export class PreProccessJson {
+
+	public constructor() {
+	}
+
+	createRulesFromOffers(offers, rules) {
+		for(let offer of offers){
+			rules.push(offer.rule as RuleLiteral);
+		}
+	}
+
+	createAndPushRule(rule, rules, index) {
+		const newRule = {
+			...rule,
+			code: "codigoAleatorio" + index
+		}
+		rules.push(newRule)
+		return newRule
+	}
+
+	filterJson(rulesToFilter, offersToFilter, untypeOffers) {
 
 	for (let rule of rulesToFilter) {
 		let newRule  = rule as CompositeRule
@@ -8,25 +30,18 @@ export default function filterJson(rulesToFilter, offersToFilter, untypeOffers) 
 		if (newRule.rules) {
 			for (let rule of (newRule.rules as AnyRule[])) {
 				if (typeof rule == "string") {
-	
 				} else {
-					const newR = {
-						...rule,
-						code: "codigoAleatorio" + i
-					}
-					rulesToFilter.push(newR)
+
+					this.createAndPushRule(rule, rulesToFilter, i)
 					newRule.rules[i] = "codigoAleatorio" + i
-	
 				}
 				i += 1
 			}
 		}
 	}
 
-	for(let offer of offersToFilter){
-		rulesToFilter.push(offer.rule as RuleLiteral);
-	}
 
+	this.createRulesFromOffers(offersToFilter, rulesToFilter)
 
 
 	untypeOffers.offers.forEach(offer => {
@@ -38,12 +53,8 @@ export default function filterJson(rulesToFilter, offersToFilter, untypeOffers) 
 					if ((rule1 as any).rules) {
 						for(let r of (rule1 as any).rules) {
 							if(typeof r !== "string"){
-								const a = {
-									...r,
-									code: r.description + i
-								} as RuleLiteral
-								
-								rulesToFilter.push(a);
+		
+								const a = this.createAndPushRule(r, rulesToFilter,i);
 								(rule1 as any).rules[i] = a.code;
 							}
 							i +=1
@@ -55,21 +66,21 @@ export default function filterJson(rulesToFilter, offersToFilter, untypeOffers) 
 						} as RuleLiteral
 						
 						rulesToFilter.push(a);
+						//const a = this.createAndPushRule(rule1, rulesToFilter, index1);
 						(offer.rule as unknown as CompositeRule).rules[index1] = a.code;
 						return
-
 					}
-					
 					if (typeof offer.rule != "string") {
 
 						(offer.rule as any).rules[index1] = (rule1 as any).code;
-					} 
-					
+					} 			
 					const ruleToPush = rule1 as RuleLiteral
 					rulesToFilter.push(ruleToPush);
 				}
 			});
 		}
 	});
+}
+
 
 }

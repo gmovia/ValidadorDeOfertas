@@ -235,7 +235,7 @@ describe("acceptance tests 2", () => {
 			products,
 			payment: {
 				method: "CASH",
-				entity: "USD"
+				entity: "ARS"
 			},
 			purchase_date: {
 				year: 1996,
@@ -281,7 +281,7 @@ describe("acceptance tests 2", () => {
 				year: 1959,
 				month: 1,
 				day_number: 5,
-				week_day: "Monday",
+				week_day: "Wednesday",
 				week_number: 2
 			}
 		};
