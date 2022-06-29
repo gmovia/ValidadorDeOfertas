@@ -2,7 +2,9 @@ import { offers, products, rules, cart } from "../data/data";
 import { initializeOffers, processProducts } from "../src/test-driver";
 import { TypeCart } from "../src/type/typeCart";
 import { TypeDiscount } from "../src/type/typeDiscount";
+import { normalizeResult } from "../src/normalize-result";
 import {offersExtra, rulesExtra} from "../data/dataExtra";
+import { TypeProcessedProduct } from "../src/type/typeProcessedProduct";
 
 describe("acceptance tests 1", () => {
 
@@ -31,11 +33,20 @@ describe("acceptance tests 1", () => {
 			}
 		];
 
-		const result = processProducts(state, cart);
+		const proccessProducts = processProducts(state, cart);
 
-		expect(result[0].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[0]});
-		expect(result[1].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[1]});
-		expect(result[2].getResult()).toStrictEqual({discounts: expectedDiscount, product: products[2]});
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
+		expect(normalizeResult(result)).toEqual(
+			normalizeResult([
+				{ discounts: expectedDiscount, product: products[0] },
+				{ discounts: expectedDiscount, product: products[1] },
+				{ discounts: expectedDiscount, product: products[2] }
+			])
+		);
     });
 
 	
@@ -55,12 +66,25 @@ describe("acceptance tests 1", () => {
 				week_number: 25
 			}
 		};
-		const result = processProducts(state, cart);
-		expect(result[0].getCode()).toBe(fanta[0].code);
-		const price = fanta[0].price*(1+fanta[0].iva_percentage/100)
-		expect(result[0].calculatePrice()).toBe(price - 7);
 
+		const expectedDiscount = [
+			{
+				type: "FIX",
+				value: 7
+			}
+		];
+
+		const proccessProducts = processProducts(state, cart);
 		
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
+		expect(result).toEqual([
+			{ discounts: expectedDiscount, product: fanta[0] }
+		]);
+
 	});
 
 	
@@ -80,7 +104,13 @@ describe("acceptance tests 1", () => {
 				week_number: 29
 			}
 		};
-		const result = processProducts(state, cart);
+		const proccessProducts = processProducts(state, cart);
+		
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
 		expect(result).toEqual([]);
 	});
 	
@@ -99,7 +129,13 @@ describe("acceptance tests 1", () => {
 				week_number: 1
 			}
 		};
-		const result = processProducts(state, cart);
+		const proccessProducts = processProducts(state, cart);
+
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
 		expect(result).toEqual([]);
 	});
 
@@ -118,11 +154,30 @@ describe("acceptance tests 1", () => {
 				week_number: 29
 			}
 		};
-		const result = processProducts(state, cart);
-		for(let i=0; i<products.length; i++){
-			expect(products[i].code).toBe(result[i].getCode());
-			expect(result[i].calculatePrice()).toBe(products[i].price*(1+products[i].iva_percentage/100)*0.75);
+
+		const expectedDiscount: TypeDiscount[] = [
+			{
+				type: "CART_PERCENTAGE",
+				value: 25
+			}
+		];
+
+		const proccessProducts = processProducts(state, cart);
+
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
 		}
+
+		expect(normalizeResult(result)).toEqual(
+			normalizeResult(
+				products.map(product => ({
+					discounts: expectedDiscount,
+					product: product
+				}))
+			)
+		);
+
 	});
 
 
@@ -144,7 +199,28 @@ describe("acceptance tests 1", () => {
 				week_number: 5
 			}
 		};
-		const result = processProducts(state, cart);
-		expect(result[0].getCode()).toEqual(leche[0].code);
+
+		const expectedDiscount: TypeDiscount[] = [
+			{
+				type: "PRODUCT_PERCENTAGE",
+				value: 15
+			},
+			{
+				type: "PRODUCT_PERCENTAGE",
+				value: 10
+			}
+		];
+
+		const proccessProducts = processProducts(state, cart);
+
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
+		expect(normalizeResult(result)).toEqual(
+			normalizeResult([{ discounts: expectedDiscount, product: leche[0] }])
+		);
+
 	});
 });

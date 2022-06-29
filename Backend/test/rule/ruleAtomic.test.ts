@@ -16,7 +16,7 @@ let brandName = "La Serenisima";
 let categoryCode = "X04ABXX";
 let categoryName = "Lacteo";
 let price = 19.20;
-let iva_porcentage = 21.0;
+let iva_percentage = 21.0;
 
 const product = new Product("Leche Descremada 1L serenisima", "DEFG123", "La Serenisima", "X04ABXX", "Lacteo", 19.20, 21, "AB001");
 const payment = new Payment("DEBIT", "GALICIA");
@@ -24,7 +24,7 @@ const calendar = new Calendar("2002", "ENERO", 28, "Sunday", 4);
 
 it("Dada una regla de tipo equals sobre el codigo de producto AB001, un producto con codigo AB001 satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Equals(), "PRODUCT.code", "AB001");
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "AB001")
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "AB001")
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(true);
 })
@@ -32,56 +32,56 @@ it("Dada una regla de tipo equals sobre el codigo de producto AB001, un producto
 
 it("Dada una regla de tipo equals sobre el codigo de producto AB001, un producto con codigo AB002 no satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Equals(), "PRODUCT.code", "AB001");
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "AB002");
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "AB002");
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla de tipo distinct sobre el codigo de producto AB001, un producto con codigo AB002 satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Distinct(), "PRODUCT.code", "AB001");
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "AB002");
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "AB002");
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla de tipo distinct sobre el codigo de producto AB001, un producto con codigo AB001 no satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Distinct(), "PRODUCT.code", "AB001");
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "AB001");
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "AB001");
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla de tipo higher aplicada sobre precios de valor 1000, un producto con precio 1100 satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Higher(), "PRODUCT.price", 1000);
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 1100, iva_porcentage, code);
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 1100, iva_percentage, code);
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla de tipo higher aplicada sobre precios de valor 1000, un producto con precio 900 no satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Higher(), "PRODUCT.price", 1000);
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 900, iva_porcentage, code);
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 900, iva_percentage, code);
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(false);
 })
 
 it("Dada una regla de tipo lower aplicada sobre precios de valor 1000, un producto con precio 900 satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new Lower(), "PRODUCT.price", 1000);
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 900, iva_porcentage, code);
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, 900, iva_percentage, code);
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla de tipo in aplicada sobre los codigos [AB, BC], un producto con codigo AB satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new In(), "PRODUCT.code", ["AB", "BC"]);
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "AB");
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "AB");
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(true);
 })
 
 it("Dada una regla de tipo in aplicada sobre los codigos [AB, BC], un producto con codigo ABD no satisface la regla", ()=>{
     const rule = new AtomicRule("R1", new In(), "PRODUCT.code", ["AB", "BC"]);
-    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_porcentage, "ABD");
+    const product = new Product(name, brandCode, brandName, categoryCode, categoryName, price, iva_percentage, "ABD");
     const purchasedProduct = new PurchasedProduct(product, payment, calendar);
     expect(rule.isApply(purchasedProduct)).toBe(false);
 })

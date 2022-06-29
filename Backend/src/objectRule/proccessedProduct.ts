@@ -1,6 +1,7 @@
 import { PurchasedProduct } from "./purchasedProduct";
 import { Offer } from "../offer/offer";
 import { Offers } from "../offer/offers";
+import { TypeProcessedProduct } from "../type/typeProcessedProduct";
 
 export class ProccessedProduct{
 
@@ -31,7 +32,7 @@ export class ProccessedProduct{
         return this.offers.calculatePrice(this.product);
     }
 
-    getResult(){
+    getResult(): TypeProcessedProduct{
         return {discounts: this.offers.getDiscounts(), product: this.product.getProduct()};
     }
     

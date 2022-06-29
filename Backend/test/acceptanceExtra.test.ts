@@ -3,6 +3,8 @@ import { initializeOffers, processProducts } from "../src/test-driver";
 import { TypeCart } from "../src/type/typeCart";
 import { TypeDiscount } from "../src/type/typeDiscount";
 import {offersExtra, rulesExtra} from "../data/dataExtra";
+import { TypeProcessedProduct } from "../src/type/typeProcessedProduct";
+import { normalizeResult } from "../src/normalize-result";
 
 
 describe("acceptance tests 2", () => {
@@ -23,29 +25,29 @@ describe("acceptance tests 2", () => {
 				week_number: 29
 			}
 		};
-		const result = processProducts(state, cart);
-
-
-
 		const expectedDiscount: TypeDiscount[] = [
 			{
 				type: "CART_PERCENTAGE",
 				value: 30
 			}
 		];
-		/*expect(normalizeResult(result)).toEqual(
+
+		const proccessProducts = processProducts(state, cart);
+
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
+		expect(normalizeResult(result)).toEqual(
 			normalizeResult(
 				products.map(product => ({
 					discounts: expectedDiscount,
 					product: product
 				}))
 			)
-		);*/
-		
+		);
 
-		for (let i = 0; i < result.length; i++) {
-			expect(result[i].getResult()).toEqual({discounts: expectedDiscount, product: products[i]});
-		}
 	});
 
 	it("should get 1% off on monday for things more expensive than 175", () => {
@@ -95,7 +97,6 @@ describe("acceptance tests 2", () => {
 				week_number: 22
 			}
 		};
-		const result = processProducts(state, cart);
 
 		const expectedDiscount: TypeDiscount[] = [
 			{
@@ -103,16 +104,23 @@ describe("acceptance tests 2", () => {
 				value: 10
 			}
 		];
-		/*expect(normalizeResult(result)).toEqual(
+
+		const proccessProducts = processProducts(state, cart);
+		console.log(proccessProducts);
+
+		const result: TypeProcessedProduct[] = [];
+		for(let product of proccessProducts){
+			result.push(product.getResult());
+		}
+
+
+		expect(normalizeResult(result)).toEqual(
 			normalizeResult(
 				products.map(product => ({
 					discounts: expectedDiscount,
 					product: product
 				}))
 			)
-		);*/
-		for (let i = 0; i < result.length; i++) {
-			expect(result[i].getResult()).toEqual({discounts: expectedDiscount, product: products[i]});
-		}
+		);
 	});
 });
