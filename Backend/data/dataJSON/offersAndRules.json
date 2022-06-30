@@ -93,44 +93,9 @@
 			"type": "NOT",
 			"code": "NO_MACRO",
 			"rules": "PAGO_MACRO"
-		},
-		{
-			"code": "PAGO_EFECTIVO",
-			"description": "Pago en efectivo",
-			"type": "EQUALS",
-			"field": "PAYMENT.method",
-			"value": "CASH"
-		},
-		{
-			"code": "MONEDA_EXTRANJERA",
-			"type": "AND",
-			"rules": [
-				"PAGO_EFECTIVO",
-				{
-					"type": "DISTINCT",
-					"field": "PAYMENT.entity",
-					"description": "Cualquier moneda",
-					"value": "ARS"
-				}
-			]
 		}
-
-
 	],
 	"offers": [
-		{
-			"description": "10% de descuento en lácteos durante febrero",
-			"code": "OF0003",
-			"rule": {
-				"type": "AND",
-				"code": "LACTEO_FEBRERO",
-				"rules": ["PRODUCTO_LACTEO", "MES_FEBRERO"]
-			},
-			"discount": {
-				"type": "PRODUCT_PERCENTAGE",
-				"value": 10
-			}
-		},
 		{
 			"description": "25% de descuento en las compras de Julio pagando con credito o debito Macro",
 			"code": "OF0001",
@@ -165,18 +130,28 @@
 				"value": 7
 			}
 		},
-
+		{
+			"description": "10% de descuento en lácteos durante febrero",
+			"code": "OF0003",
+			"rule": {
+				"type": "AND",
+				"code": "LACTEO_FEBRERO",
+				"rules": ["PRODUCTO_LACTEO", "MES_FEBRERO"]
+			},
+			"discount": {
+				"type": "PRODUCT_PERCENTAGE",
+				"value": 10
+			}
+		},
 		{
 			"description":
 				"Los Lunes y Miércoles de Febrero, los productos de marca: LA CALMISIMA (codigo 0088ABC) tienen un 15% de descuento solo pagando con CREDITO O DEBITO DEL BANCO GALICIA",
 			"code": "OF0004",
 			"rule": {
 				"type": "AND",
-				"code": "OF0005",
 				"rules": [
 					{
 						"type": "OR",
-						"code": "OF0006",
 						"rules": [
 							{
 								"type": "EQUALS",
@@ -194,7 +169,6 @@
 					},
 					{
 						"type": "AND",
-						"code": "OF0009",
 						"rules": [
 							{
 								"type": "EQUALS",
@@ -218,7 +192,6 @@
 					},
 					{
 						"type": "AND",
-						"code": "OF0013",
 						"rules": [
 							{
 								"type": "EQUALS",
@@ -241,8 +214,5 @@
 				"value": 15
 			}
 		}
-
-
-
 	]
 }

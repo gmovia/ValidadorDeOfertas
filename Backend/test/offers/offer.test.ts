@@ -14,6 +14,12 @@ const calendar = new Calendar("2002", 2, 28, "Sunday", 4);
 it("Producto lacteo comprado en el mes de febrero aplica descuento del 10%",()=>{
     const store = new Store(rules);
     const factory = new OfferFactory(store);
-    const offer = factory.createOffer(offers[0]); 
+    // get offer from offers with code OF0003
+    let offer = null
+    for (let o of offers) {
+        if (o.code == "OF0003") {
+            offer = factory.createOffer(o);
+        }
+    }
     expect(offer.calculateCost(new PurchasedProduct(product, payment, calendar), product.calculatePrice())).toBe(product.calculatePrice()*0.9);
 });

@@ -13,10 +13,15 @@ const product = new Product("Leche Descremada 1L serenisima", "DEFG123", "La Ser
 const payment = new Payment("DEBIT", "GALICIA");
 const calendar = new Calendar("2002", 2, 28, "Sunday", 4);
 
-it("Creacion de la oferta 0F0001",()=>{
+it("Creacion de la oferta 0F0003",()=>{
     const factory = new OfferFactory(store);
-    const offer = factory.createOffer(offers[0]);
-    const code = offers[0].code;
+    let offer = null
+    for (let o of offers) {
+        if (o.code == "OF0003") {
+            offer = factory.createOffer(o);
+        }
+    }
+    const code = offer.code;
     expect(offer.getCode()).toBe(code);
 
     var purchasedProduct = new PurchasedProduct(product, payment, calendar);

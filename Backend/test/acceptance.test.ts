@@ -326,7 +326,7 @@ describe("acceptance tests 2", () => {
 		];
 
 		const proccessProducts = processProducts(state, cart);
-		console.log(proccessProducts);
+
 
 		const result: TypeProcessedProduct[] = [];
 		for(let product of proccessProducts){

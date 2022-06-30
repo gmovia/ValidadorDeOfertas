@@ -40,7 +40,7 @@ exports.sendCart = (req: any, res: any) => {
         var userId = req.params.user;
         const authHeader = req.headers['authorization'];
         const token = authHeader && authHeader.split(' ')[1];
-        console.log(authHeader);
+        //console.log(authHeader);
 
         if (token == null)
             return res.status(401).send("Token requerido");

@@ -128,5 +128,15 @@
         "id": 26,
         "email": "fdsfdsxzc",
         "password": "$2a$08$1r1igI/EuiQfWXBPd7XCyeEzz0JMs3cVk08jtI96WlQWfam9IvWF6"
+    },
+    {
+        "id": 27,
+        "email": "re",
+        "password": "$2a$08$n8SSC0sWxgcwODlrh33Fx.7V2ddhjPErZnJxA5CAvzkC8kHcNLCha"
+    },
+    {
+        "id": 28,
+        "email": "guido",
+        "password": "$2a$08$GWwyXgzy3f0t2oImop4mdezrLtVcSkIJ8J/3wULxNYjgvDqD1bc4C"
     }
 ]
